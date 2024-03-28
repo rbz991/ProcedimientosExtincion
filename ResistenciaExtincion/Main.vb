@@ -18,6 +18,7 @@ Public Class Main
     Private responseCount(4) As Integer
 
     Private Sub form_click(sender As Object, e As MouseEventArgs) Handles Me.Click
+        If currentComponent = 5 Then Finish()
         WriteLine(1, vTimeNow, currentComponent, 0, e.X, e.Y)
     End Sub
 
@@ -34,6 +35,7 @@ Public Class Main
 
     Private Sub imgClick(sender As Object, e As MouseEventArgs) Handles imgTriangle.Click, imgCircle.Click
         If currentComponent = 5 Then Finish()
+
         responseCount(currentComponent) += 1
         WriteLine(1, vTimeNow, currentComponent, 1, e.X, e.Y)
         If refReady = True Then
@@ -68,6 +70,7 @@ Public Class Main
     Private Sub tmrComponent_Tick() Handles tmrComponent.Tick
         currentComponent += 1
         VIList.Clear()
+        refReady = False
         If currentComponent = 2 Then
             imgCircle.Visible = False
             imgTriangle.Visible = True
