@@ -17,6 +17,10 @@ Public Class Main
     Private prevVI As Byte
     Private responseCount(4) As Integer
 
+    Private Sub form_click(sender As Object, e As MouseEventArgs) Handles Me.Click
+        WriteLine(1, vTimeNow, currentComponent, 0, e.X, e.Y)
+    End Sub
+
     Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         vTimeStart = Environment.TickCount
         Me.WindowState = FormWindowState.Maximized
@@ -28,10 +32,10 @@ Public Class Main
         imgCircle.Left = Rand.Next(0, Size.Width / 1.1)
     End Sub
 
-    Private Sub imgClick(sender As Object, e As EventArgs) Handles imgTriangle.Click, imgCircle.Click
+    Private Sub imgClick(sender As Object, e As MouseEventArgs) Handles imgTriangle.Click, imgCircle.Click
         If currentComponent = 5 Then Finish()
         responseCount(currentComponent) += 1
-        WriteLine(1, vTimeNow, currentComponent)
+        WriteLine(1, vTimeNow, currentComponent, 1, e.X, e.Y)
         If refReady = True Then
             refReady = False
             Reinforce(sender)
