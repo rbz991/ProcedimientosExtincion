@@ -1,9 +1,10 @@
 ﻿Imports System.Math
+Imports System.Security.AccessControl
 Public Class Main
 
     Private Dur As Integer = 20000
-    Private Rich As Byte = 3
-    Private Lean As Byte = 6
+    Private IV As Byte = 5
+
 
     Public vTimeStart As Integer = 0
     Private Rand As New Random
@@ -17,10 +18,14 @@ Public Class Main
     Private prevVI As Byte
     Private responseCount(4) As Integer
 
+    Private Sub form_click(sender As Object, e As MouseEventArgs) Handles Me.Click
+        WriteLine(1, vTimeNow, currentComponent, 0, e.X, e.Y)
+    End Sub
+
     Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         vTimeStart = Environment.TickCount
         Me.WindowState = FormWindowState.Maximized
-        VIGen(Rich)
+        VIGen(IV)
         tmrComponent.Interval = Dur 'Duración del componente
         tmrMasUno.Interval = 1000
         tmrComponent.Enabled = True
@@ -28,15 +33,15 @@ Public Class Main
         imgCircle.Left = Rand.Next(0, Size.Width / 1.1)
     End Sub
 
-    Private Sub imgClick(sender As Object, e As EventArgs) Handles imgTriangle.Click, imgCircle.Click
-        If currentComponent = 5 Then Finish()
+    Private Sub imgClick(sender As Object, e As MouseEventArgs) Handles imgTriangle.Click, imgCircle.Click
+        If currentComponent = 4 Then Finish()
         responseCount(currentComponent) += 1
-        WriteLine(1, vTimeNow, currentComponent)
+        WriteLine(1, vTimeNow, currentComponent, 1, e.X, e.Y)
         If refReady = True Then
             refReady = False
             Reinforce(sender)
-            If currentComponent = 1 Then VIGen(Rich)
-            If currentComponent = 2 Then VIGen(Lean)
+            If currentComponent = 1 Then VIGen(IV)
+            If currentComponent = 2 Then VIGen(IV)
         End If
         Text = responseCount(1) & "," & responseCount(2) & "," & responseCount(3) & "," & responseCount(4) & "," & tmrVI.Interval
     End Sub
@@ -52,8 +57,8 @@ Public Class Main
         lblPoints.Text = Points
         sender.Left = Rand.Next(0, Size.Width / 1.1)
         sender.Top = Rand.Next(0, Size.Height / 1.1)
-        If currentComponent = 1 Or currentComponent = 3 Then VIGen(Rich)
-        If currentComponent = 2 Or currentComponent = 4 Then VIGen(Lean)
+        If currentComponent = 1 Then VIGen(IV)
+
     End Sub
 
     Private Sub tmrMasUno_Tick() Handles tmrMasUno.Tick
@@ -68,20 +73,16 @@ Public Class Main
             imgCircle.Visible = False
             imgTriangle.Visible = True
             imgTriangle.Left = Rand.Next(0, Size.Width / 1.1)
-            VIGen(Lean)
+
         ElseIf currentComponent = 3 Then
             imgCircle.Visible = True
             imgTriangle.Visible = False
             imgCircle.Left = Rand.Next(0, Size.Width / 1.1)
-            VIGen(Rich)
         ElseIf currentComponent = 4 Then
-            imgCircle.Visible = False
-            imgTriangle.Visible = True
-            imgTriangle.Left = Rand.Next(0, Size.Width / 1.1)
-            VIGen(Lean)
+            Finish()
         End If
 
-        If currentComponent = 5 Then Finish()
+
     End Sub
 
     Private Sub Finish()
@@ -89,7 +90,6 @@ Public Class Main
         lblPoints.Visible = False
         imgCircle.Visible = False
         imgTriangle.Visible = False
-        lblGracias.Text = lblGracias.Text & " Obtuviste " & Points & "puntos."
         FileClose(1)
     End Sub
 
@@ -128,9 +128,5 @@ Public Class Main
     Private Function vTimeNow()
         Return Environment.TickCount - vTimeStart
     End Function
-    Dim test = 0
-    Dim bln = False
-
-
 
 End Class
