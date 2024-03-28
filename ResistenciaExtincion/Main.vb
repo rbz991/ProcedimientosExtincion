@@ -1,7 +1,7 @@
 ﻿Imports System.Math
 Public Class Main
 
-    Private Dur As Integer = 20000
+    Private Dur As Integer = 30000
     Private Rich As Byte = 3
     Private Lean As Byte = 6
 
@@ -11,11 +11,13 @@ Public Class Main
     Private WithEvents tmrVI As Timer = New Timer
     Private WithEvents tmrComponent As Timer = New Timer
     Private WithEvents tmrMasUno As Timer = New Timer
-    Private refReady As Boolean = False
+    Private WithEvents tmrMouseHover As Timer = New Timer
+    Private refReady(2) As Boolean
     Private currentComponent As Byte = 1
     Private Points As Byte
     Private prevVI As Byte
     Private responseCount(4) As Integer
+    Private hoverCounter As Integer
 
     Private Sub form_click(sender As Object, e As MouseEventArgs) Handles Me.Click
         If currentComponent = 5 Then Finish()
@@ -31,15 +33,51 @@ Public Class Main
         tmrComponent.Enabled = True
         imgTriangle.Visible = False
         imgCircle.Left = Rand.Next(0, Size.Width / 1.1)
+        tmrMouseHover.Interval = 2000
     End Sub
 
     Private Sub imgClick(sender As Object, e As MouseEventArgs) Handles imgTriangle.Click, imgCircle.Click
         If currentComponent = 5 Then Finish()
+        tmrMouseHover.Enabled = False
+        tmrMouseHover.Enabled = True
 
         responseCount(currentComponent) += 1
         WriteLine(1, vTimeNow, currentComponent, 1, e.X, e.Y)
-        If refReady = True Then
-            refReady = False
+        If refReady(0) = True Then
+            refReady(0) = False
+            Reinforce(sender)
+            If currentComponent = 1 Then VIGen(Rich)
+            If currentComponent = 2 Then VIGen(Lean)
+        End If
+        Text = responseCount(1) & "," & responseCount(2) & "," & responseCount(3) & "," & responseCount(4) & "," & tmrVI.Interval
+    End Sub
+
+    Private Sub imgMouseOver(sender As Object, e As EventArgs) Handles imgTriangle.MouseEnter, imgCircle.MouseEnter
+        If currentComponent = 5 Then Finish()
+        tmrMouseHover.Enabled = False
+        tmrMouseHover.Enabled = True
+
+        responseCount(currentComponent) += 1
+        WriteLine(1, vTimeNow, currentComponent, 2, Cursor.Position.X, Cursor.Position.Y)
+        If refReady(1) = True Then
+            refReady(1) = False
+            Reinforce(sender)
+            If currentComponent = 1 Then VIGen(Rich)
+            If currentComponent = 2 Then VIGen(Lean)
+        End If
+        Text = responseCount(1) & "," & responseCount(2) & "," & responseCount(3) & "," & responseCount(4) & "," & tmrVI.Interval
+    End Sub
+
+    Private Sub imgMouseExit(sender As Object, e As EventArgs) Handles imgTriangle.MouseLeave, imgCircle.MouseLeave
+        tmrMouseHover.Enabled = False
+    End Sub
+
+    Private Sub tmrMouseHover_Tick(sender As Object, e As EventArgs) Handles tmrMouseHover.Tick
+        If currentComponent = 5 Then Finish()
+        responseCount(currentComponent) += 1
+        WriteLine(1, vTimeNow, currentComponent, 3, Cursor.Position.X, Cursor.Position.Y)
+        If refReady(2) = True Then
+            refReady(2) = False
             Reinforce(sender)
             If currentComponent = 1 Then VIGen(Rich)
             If currentComponent = 2 Then VIGen(Lean)
@@ -56,8 +94,16 @@ Public Class Main
             tmrMasUno.Enabled = True
         End If
         lblPoints.Text = Points
-        sender.Left = Rand.Next(0, Size.Width / 1.1)
-        sender.Top = Rand.Next(0, Size.Height / 1.1)
+        If currentComponent = 1 Or 3 Then
+            imgCircle.Left = Rand.Next(0, Size.Width / 1.1)
+            imgCircle.Top = Rand.Next(0, Size.Height / 1.1)
+        End If
+        If currentComponent = 2 Or 4 Then
+            imgTriangle.Left = Rand.Next(0, Size.Width / 1.1)
+            imgTriangle.Top = Rand.Next(0, Size.Height / 1.1)
+        End If
+
+
         If currentComponent = 1 Or currentComponent = 3 Then VIGen(Rich)
         If currentComponent = 2 Or currentComponent = 4 Then VIGen(Lean)
     End Sub
@@ -70,7 +116,11 @@ Public Class Main
     Private Sub tmrComponent_Tick() Handles tmrComponent.Tick
         currentComponent += 1
         VIList.Clear()
-        refReady = False
+
+        For i = 0 To 2
+            refReady(i) = False
+        Next
+
         If currentComponent = 2 Then
             imgCircle.Visible = False
             imgTriangle.Visible = True
@@ -102,7 +152,15 @@ Public Class Main
 
     Private Sub tmrVI_Tick() Handles tmrVI.Tick
         tmrVI.Enabled = False
-        refReady = True
+        Dim x = Rand.Next(0, 90)
+        If x < 30 Then
+            refReady(0) = True
+        ElseIf x > 30 And x < 60 Then
+            refReady(1) = True
+        ElseIf x > 60 Then
+            refReady(2) = True
+        End If
+        Text = Text & "," & x
     End Sub
 
     Private Sub VIGen(v)
@@ -137,7 +195,6 @@ Public Class Main
     End Function
     Dim test = 0
     Dim bln = False
-
 
 
 End Class
