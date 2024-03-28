@@ -19,6 +19,7 @@ Public Class Main
     Private responseCount(4) As Integer
 
     Private Sub form_click(sender As Object, e As MouseEventArgs) Handles Me.Click
+        If currentComponent = 4 Then Finish()
         WriteLine(1, vTimeNow, currentComponent, 0, e.X, e.Y)
     End Sub
 
@@ -26,24 +27,25 @@ Public Class Main
         vTimeStart = Environment.TickCount
         Me.WindowState = FormWindowState.Maximized
         VIGen(IV)
-        tmrComponent.Interval = Dur 'Duración del componente
+        tmrComponent.Interval = Dur
         tmrMasUno.Interval = 1000
         tmrComponent.Enabled = True
         imgTriangle.Visible = False
         imgCircle.Left = Rand.Next(0, Size.Width / 1.1)
+        BackColor = Color.Cyan
     End Sub
 
     Private Sub imgClick(sender As Object, e As MouseEventArgs) Handles imgTriangle.Click, imgCircle.Click
         If currentComponent = 4 Then Finish()
+        If currentComponent = 2 Then refReady = False
         responseCount(currentComponent) += 1
         WriteLine(1, vTimeNow, currentComponent, 1, e.X, e.Y)
         If refReady = True Then
             refReady = False
             Reinforce(sender)
             If currentComponent = 1 Then VIGen(IV)
-            If currentComponent = 2 Then VIGen(IV)
         End If
-        Text = responseCount(1) & "," & responseCount(2) & "," & responseCount(3) & "," & responseCount(4) & "," & tmrVI.Interval
+        Text = responseCount(1) & "," & responseCount(2) & "," & responseCount(3) & "," & tmrVI.Interval
     End Sub
 
     Private Sub Reinforce(sender)
@@ -70,11 +72,13 @@ Public Class Main
         currentComponent += 1
         VIList.Clear()
         If currentComponent = 2 Then
+            BackColor = Color.BurlyWood
             imgCircle.Visible = False
             imgTriangle.Visible = True
             imgTriangle.Left = Rand.Next(0, Size.Width / 1.1)
-
+            refReady = False
         ElseIf currentComponent = 3 Then
+            BackColor = Color.Cyan
             imgCircle.Visible = True
             imgTriangle.Visible = False
             imgCircle.Left = Rand.Next(0, Size.Width / 1.1)
