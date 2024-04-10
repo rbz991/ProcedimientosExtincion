@@ -91,7 +91,7 @@ Public Class Main
         lblPoints.Visible = False
         imgCircle.Visible = False
         imgTriangle.Visible = False
-        lblGracias.Text = lblGracias.Text & " Obtuviste " & Points & "puntos."
+        lblGracias.Text = lblGracias.Text & " Obtuviste " & Points & " puntos."
         FileClose(1)
     End Sub
 
