@@ -1,10 +1,5 @@
 ﻿Imports System.Math
 Public Class Main
-
-    Private Dur As Integer = 20000
-    Private Rich As Byte = 3
-    Private Lean As Byte = 6
-
     Public vTimeStart As Integer = 0
     Private Rand As New Random
     Private VIList As New List(Of Integer)

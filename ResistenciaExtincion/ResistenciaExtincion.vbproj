@@ -73,6 +73,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Params.Designer.vb">
+      <DependentUpon>Params.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Params.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="SetUp.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +97,7 @@
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -104,6 +111,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Params.resx">
+      <DependentUpon>Params.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SetUp.resx">
       <DependentUpon>SetUp.vb</DependentUpon>
     </EmbeddedResource>
