@@ -130,6 +130,11 @@ Public Class Main
     Private Function vTimeNow()
         Return Environment.TickCount - vTimeStart
     End Function
+
+    Private Sub Main_FormClosed(sender As Object, e As FormClosedEventArgs) Handles Me.FormClosed
+        Process.GetCurrentProcess.Kill()
+    End Sub
+
     Dim test = 0
     Dim bln = False
 

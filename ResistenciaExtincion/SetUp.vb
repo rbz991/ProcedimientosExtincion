@@ -8,4 +8,8 @@ Public Class SetUp
         Dim x As New Main
         x.Show()
     End Sub
+
+    Private Sub SetUp_FormClosed(sender As Object, e As FormClosedEventArgs) Handles Me.FormClosed
+        Process.GetCurrentProcess.Kill()
+    End Sub
 End Class

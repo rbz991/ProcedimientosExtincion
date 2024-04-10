@@ -7,4 +7,8 @@
         Dim o As New SetUp
         o.Show()
     End Sub
+
+    Private Sub Params_FormClosed(sender As Object, e As FormClosedEventArgs) Handles Me.FormClosed
+        Process.GetCurrentProcess.Kill()
+    End Sub
 End Class
