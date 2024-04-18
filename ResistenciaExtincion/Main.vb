@@ -14,7 +14,7 @@ Public Class Main
 
     Private Sub form_click(sender As Object, e As MouseEventArgs) Handles Me.Click
         If currentComponent = 5 Then Finish()
-        WriteLine(1, vTimeNow, currentComponent, 0, e.X, e.Y)
+        WriteLine(1, vTimeNow, currentComponent, 0, MousePosition.X, MousePosition.Y)
     End Sub
 
     Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
