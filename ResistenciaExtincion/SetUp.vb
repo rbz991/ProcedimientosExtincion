@@ -2,9 +2,9 @@
 Public Class SetUp
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnComenzar.Click
         Me.Visible = False
-        Dim dir As DirectoryInfo = New DirectoryInfo("C:\MyDir")
+        Dim dir As DirectoryInfo = New DirectoryInfo("C:\Data")
         dir.Create()
-        FileOpen(1, "C:\MyDir\" & txbParticipante.Text & "_" & Dur & "_" & Rich & "_" & Lean & "_" & Format(Date.Now, "dd-MM-yyyy_hh-mm-ss") & ".txt", OpenMode.Append)
+        FileOpen(1, "C:\Data\" & txbParticipante.Text & "_" & Dur & "_" & Rich & "_" & Lean & "_" & Format(Date.Now, "dd-MM-yyyy_hh-mm-ss") & ".txt", OpenMode.Append)
         Dim x As New Main
         x.Show()
     End Sub
