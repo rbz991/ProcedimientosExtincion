@@ -32,7 +32,7 @@ Public Class Main
         If currentComponent = 5 Then Finish()
 
         responseCount(currentComponent) += 1
-        WriteLine(1, vTimeNow, currentComponent, 1, e.X, e.Y)
+        WriteLine(1, vTimeNow, currentComponent, 1, MousePosition.X, MousePosition.Y)
         If refReady = True Then
             refReady = False
             Reinforce(sender)
