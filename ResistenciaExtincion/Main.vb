@@ -122,13 +122,15 @@ Public Class Main
     End Sub
 
     Private Sub Finish()
-        lblGracias.Visible = True
-        lblPoints.Visible = False
-        imgCircle.Visible = False
-        imgTriangle.Visible = False
-        lblGracias.Text = lblGracias.Text & " Obtuviste " & Points & " puntos. Por favor avisa al responsable."
-        FileClose(1)
-        blnFinished = True
+        If blnFinished = False Then
+            lblGracias.Visible = True
+            lblPoints.Visible = False
+            imgCircle.Visible = False
+            imgTriangle.Visible = False
+            lblGracias.Text = lblGracias.Text & " Obtuviste " & Points & " puntos. Por favor avisa al responsable."
+            FileClose(1)
+            blnFinished = True
+        End If
     End Sub
 
     Private Sub tmrVI_Tick() Handles tmrVI.Tick
