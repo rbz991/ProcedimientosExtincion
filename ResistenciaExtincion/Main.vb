@@ -11,35 +11,47 @@ Public Class Main
     Private Points As Byte
     Private prevVI As Byte
     Private responseCount(4) As Integer
+    Private blnFinished As Boolean = False
 
     Private Sub form_click(sender As Object, e As MouseEventArgs) Handles Me.Click
         If currentComponent = 5 Then Finish()
-        WriteLine(1, vTimeNow, currentComponent, 0, MousePosition.X, MousePosition.Y)
+        If blnFinished = False Then
+            WriteLine(1, vTimeNow, currentComponent, 0, MousePosition.X, MousePosition.Y)
+        End If
     End Sub
 
     Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         vTimeStart = Environment.TickCount
         Me.WindowState = FormWindowState.Maximized
-        VIGen(Rich)
         tmrComponent.Interval = Dur 'Duración del componente
-        tmrMasUno.Interval = 1000
         tmrComponent.Enabled = True
-        imgTriangle.Visible = False
-        imgCircle.Left = Rand.Next(0, Size.Width / 1.1)
+        tmrMasUno.Interval = 1000
+        If Ini = "RICO" Then
+            imgCircle.Visible = True
+            imgTriangle.Visible = False
+            imgCircle.Left = Rand.Next(0, Size.Width / 1.1)
+            VIGen(Rich)
+        ElseIf Ini = "POBRE" Then
+            imgTriangle.Visible = True
+            imgCircle.Visible = False
+            imgTriangle.Left = Rand.Next(0, Size.Width / 1.1)
+            VIGen(Lean)
+        End If
     End Sub
 
     Private Sub imgClick(sender As Object, e As MouseEventArgs) Handles imgTriangle.Click, imgCircle.Click
         If currentComponent = 5 Then Finish()
-
-        responseCount(currentComponent) += 1
-        WriteLine(1, vTimeNow, currentComponent, 1, MousePosition.X, MousePosition.Y)
-        If refReady = True Then
-            refReady = False
-            Reinforce(sender)
-            If currentComponent = 1 Then VIGen(Rich)
-            If currentComponent = 2 Then VIGen(Lean)
+        If blnFinished = False Then
+            responseCount(currentComponent) += 1
+            WriteLine(1, vTimeNow, currentComponent, 1, MousePosition.X, MousePosition.Y)
+            If refReady = True Then
+                refReady = False
+                Reinforce(sender)
+                If currentComponent = 1 Then VIGen(Rich)
+                If currentComponent = 2 Then VIGen(Lean)
+            End If
+            'Text = responseCount(1) & "," & responseCount(2) & "," & responseCount(3) & "," & responseCount(4) & "," & tmrVI.Interval
         End If
-        Text = responseCount(1) & "," & responseCount(2) & "," & responseCount(3) & "," & responseCount(4) & "," & tmrVI.Interval
     End Sub
 
     Private Sub Reinforce(sender)
@@ -49,12 +61,15 @@ Public Class Main
             lblMasUno.Top = Size.Height / 2
             lblMasUno.Visible = True
             tmrMasUno.Enabled = True
+            WriteLine(1, vTimeNow, currentComponent, 3)
         End If
         lblPoints.Text = Points
         sender.Left = Rand.Next(0, Size.Width / 1.1)
         sender.Top = Rand.Next(0, Size.Height / 1.1)
-        If currentComponent = 1 Or currentComponent = 3 Then VIGen(Rich)
-        If currentComponent = 2 Or currentComponent = 4 Then VIGen(Lean)
+        If currentComponent = 1 And Ini = "RICO" Then VIGen(Rich)
+        If currentComponent = 2 And Ini = "RICO" Then VIGen(Lean)
+        If currentComponent = 1 And Ini = "POBRE" Then VIGen(Lean)
+        If currentComponent = 2 And Ini = "POBRE" Then VIGen(Rich)
     End Sub
 
     Private Sub tmrMasUno_Tick() Handles tmrMasUno.Tick
@@ -66,22 +81,42 @@ Public Class Main
         currentComponent += 1
         VIList.Clear()
         refReady = False
-        If currentComponent = 2 Then
-            imgCircle.Visible = False
-            imgTriangle.Visible = True
-            imgTriangle.Left = Rand.Next(0, Size.Width / 1.1)
-            VIGen(Lean)
-        ElseIf currentComponent = 3 Then
-            imgCircle.Visible = True
-            imgTriangle.Visible = False
-            imgCircle.Left = Rand.Next(0, Size.Width / 1.1)
-            VIGen(Rich)
-        ElseIf currentComponent = 4 Then
-            imgCircle.Visible = False
-            imgTriangle.Visible = True
-            imgTriangle.Left = Rand.Next(0, Size.Width / 1.1)
-            VIGen(Lean)
+        If Ini = "RICO" Then
+            If currentComponent = 2 Then
+                imgTriangle.Visible = True
+                imgCircle.Visible = False
+                imgTriangle.Left = Rand.Next(0, Size.Width / 1.1)
+                VIGen(Lean)
+            ElseIf currentComponent = 3 Then
+                imgCircle.Visible = True
+                imgTriangle.Visible = False
+                imgCircle.Left = Rand.Next(0, Size.Width / 1.1)
+                VIGen(Rich)
+            ElseIf currentComponent = 4 Then
+                imgTriangle.Visible = True
+                imgCircle.Visible = False
+                imgTriangle.Left = Rand.Next(0, Size.Width / 1.1)
+                VIGen(Lean)
+            End If
+        ElseIf Ini = "POBRE" Then
+            If currentComponent = 2 Then
+                imgCircle.Visible = True
+                imgTriangle.Visible = False
+                imgCircle.Left = Rand.Next(0, Size.Width / 1.1)
+                VIGen(Rich)
+            ElseIf currentComponent = 3 Then
+                imgTriangle.Visible = True
+                imgCircle.Visible = False
+                imgTriangle.Left = Rand.Next(0, Size.Width / 1.1)
+                VIGen(Lean)
+            ElseIf currentComponent = 4 Then
+                imgCircle.Visible = True
+                imgTriangle.Visible = False
+                imgCircle.Left = Rand.Next(0, Size.Width / 1.1)
+                VIGen(Rich)
+            End If
         End If
+
 
         If currentComponent = 5 Then Finish()
     End Sub
@@ -91,8 +126,9 @@ Public Class Main
         lblPoints.Visible = False
         imgCircle.Visible = False
         imgTriangle.Visible = False
-        lblGracias.Text = lblGracias.Text & " Obtuviste " & Points & " puntos."
+        lblGracias.Text = lblGracias.Text & " Obtuviste " & Points & " puntos. Por favor avisa al responsable."
         FileClose(1)
+        blnFinished = True
     End Sub
 
     Private Sub tmrVI_Tick() Handles tmrVI.Tick

@@ -73,17 +73,23 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Instructions.Designer.vb">
+      <DependentUpon>Instructions.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Instructions.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Params.Designer.vb">
       <DependentUpon>Params.vb</DependentUpon>
     </Compile>
     <Compile Include="Params.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SetUp.vb">
+    <Compile Include="Consent.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SetUp.Designer.vb">
-      <DependentUpon>SetUp.vb</DependentUpon>
+    <Compile Include="Consent.Designer.vb">
+      <DependentUpon>Consent.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Main.Designer.vb">
@@ -111,11 +117,14 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Instructions.resx">
+      <DependentUpon>Instructions.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Params.resx">
       <DependentUpon>Params.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SetUp.resx">
-      <DependentUpon>SetUp.vb</DependentUpon>
+    <EmbeddedResource Include="Consent.resx">
+      <DependentUpon>Consent.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.vb</DependentUpon>

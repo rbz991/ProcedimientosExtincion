@@ -36,9 +36,10 @@ Partial Class Main
         'imgTriangle
         '
         Me.imgTriangle.Image = Global.ResistenciaExtincion.My.Resources.Resources.triangle
-        Me.imgTriangle.Location = New System.Drawing.Point(539, 197)
+        Me.imgTriangle.Location = New System.Drawing.Point(719, 246)
+        Me.imgTriangle.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.imgTriangle.Name = "imgTriangle"
-        Me.imgTriangle.Size = New System.Drawing.Size(258, 241)
+        Me.imgTriangle.Size = New System.Drawing.Size(344, 301)
         Me.imgTriangle.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.imgTriangle.TabIndex = 3
         Me.imgTriangle.TabStop = False
@@ -46,9 +47,10 @@ Partial Class Main
         'imgCircle
         '
         Me.imgCircle.Image = Global.ResistenciaExtincion.My.Resources.Resources.circle
-        Me.imgCircle.Location = New System.Drawing.Point(410, 102)
+        Me.imgCircle.Location = New System.Drawing.Point(547, 128)
+        Me.imgCircle.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.imgCircle.Name = "imgCircle"
-        Me.imgCircle.Size = New System.Drawing.Size(293, 235)
+        Me.imgCircle.Size = New System.Drawing.Size(391, 294)
         Me.imgCircle.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.imgCircle.TabIndex = 2
         Me.imgCircle.TabStop = False
@@ -57,20 +59,22 @@ Partial Class Main
         '
         Me.lblPoints.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lblPoints.AutoSize = True
-        Me.lblPoints.Font = New System.Drawing.Font("Bahnschrift Condensed", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPoints.Location = New System.Drawing.Point(751, 9)
+        Me.lblPoints.Font = New System.Drawing.Font("Bahnschrift Condensed", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPoints.Location = New System.Drawing.Point(1001, 11)
+        Me.lblPoints.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblPoints.Name = "lblPoints"
-        Me.lblPoints.Size = New System.Drawing.Size(37, 48)
+        Me.lblPoints.Size = New System.Drawing.Size(60, 77)
         Me.lblPoints.TabIndex = 5
         Me.lblPoints.Text = "0"
         '
         'lblGracias
         '
         Me.lblGracias.AutoSize = True
-        Me.lblGracias.Font = New System.Drawing.Font("Bahnschrift Condensed", 28.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblGracias.Location = New System.Drawing.Point(12, 9)
+        Me.lblGracias.Font = New System.Drawing.Font("Bahnschrift Condensed", 36.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblGracias.Location = New System.Drawing.Point(16, 11)
+        Me.lblGracias.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblGracias.Name = "lblGracias"
-        Me.lblGracias.Size = New System.Drawing.Size(462, 68)
+        Me.lblGracias.Size = New System.Drawing.Size(785, 115)
         Me.lblGracias.TabIndex = 6
         Me.lblGracias.Text = "¡Gracias por participar!"
         Me.lblGracias.Visible = False
@@ -80,9 +84,10 @@ Partial Class Main
         Me.lblMasUno.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblMasUno.AutoSize = True
         Me.lblMasUno.Font = New System.Drawing.Font("Bahnschrift Condensed", 48.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblMasUno.Location = New System.Drawing.Point(257, 249)
+        Me.lblMasUno.Location = New System.Drawing.Point(343, 311)
+        Me.lblMasUno.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblMasUno.Name = "lblMasUno"
-        Me.lblMasUno.Size = New System.Drawing.Size(107, 115)
+        Me.lblMasUno.Size = New System.Drawing.Size(141, 153)
         Me.lblMasUno.TabIndex = 7
         Me.lblMasUno.Text = "+1"
         Me.lblMasUno.Visible = False
@@ -93,14 +98,15 @@ Partial Class Main
         '
         'Main
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 25.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(1067, 562)
         Me.Controls.Add(Me.lblMasUno)
         Me.Controls.Add(Me.lblGracias)
         Me.Controls.Add(Me.lblPoints)
         Me.Controls.Add(Me.imgTriangle)
         Me.Controls.Add(Me.imgCircle)
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "Main"
         Me.Text = " "
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
