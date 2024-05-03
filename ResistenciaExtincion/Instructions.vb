@@ -10,4 +10,6 @@ Public Class Instructions
     Private Sub _FormClosed(sender As Object, e As FormClosedEventArgs) Handles Me.FormClosed
         Process.GetCurrentProcess.Kill()
     End Sub
+
+
 End Class

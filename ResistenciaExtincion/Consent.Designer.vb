@@ -48,7 +48,7 @@ Partial Class Consent
         Me.RichTextBox2.Location = New System.Drawing.Point(16, 15)
         Me.RichTextBox2.Margin = New System.Windows.Forms.Padding(4)
         Me.RichTextBox2.Name = "RichTextBox2"
-        Me.RichTextBox2.Size = New System.Drawing.Size(1451, 723)
+        Me.RichTextBox2.Size = New System.Drawing.Size(1690, 723)
         Me.RichTextBox2.TabIndex = 4
         Me.RichTextBox2.Text = resources.GetString("RichTextBox2.Text")
         '
@@ -71,7 +71,7 @@ Partial Class Consent
         Me.txbParticipante.Margin = New System.Windows.Forms.Padding(4)
         Me.txbParticipante.Multiline = False
         Me.txbParticipante.Name = "txbParticipante"
-        Me.txbParticipante.Size = New System.Drawing.Size(334, 48)
+        Me.txbParticipante.Size = New System.Drawing.Size(302, 48)
         Me.txbParticipante.TabIndex = 3
         Me.txbParticipante.Text = ""
         '
