@@ -33,7 +33,7 @@ Partial Class Instructions
         Me.RichTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.RichTextBox2.Font = New System.Drawing.Font("Bahnschrift Condensed", 19.85!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RichTextBox2.Location = New System.Drawing.Point(6, 7)
-        Me.RichTextBox2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.RichTextBox2.Margin = New System.Windows.Forms.Padding(2)
         Me.RichTextBox2.Name = "RichTextBox2"
         Me.RichTextBox2.Size = New System.Drawing.Size(1009, 438)
         Me.RichTextBox2.TabIndex = 5
@@ -43,7 +43,7 @@ Partial Class Instructions
         '
         Me.btnComenzar.Font = New System.Drawing.Font("Bahnschrift Condensed", 22.125!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnComenzar.Location = New System.Drawing.Point(6, 470)
-        Me.btnComenzar.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnComenzar.Margin = New System.Windows.Forms.Padding(2)
         Me.btnComenzar.Name = "btnComenzar"
         Me.btnComenzar.Size = New System.Drawing.Size(300, 89)
         Me.btnComenzar.TabIndex = 6
@@ -57,7 +57,8 @@ Partial Class Instructions
         Me.ClientSize = New System.Drawing.Size(685, 389)
         Me.Controls.Add(Me.btnComenzar)
         Me.Controls.Add(Me.RichTextBox2)
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "Instructions"
         Me.Text = "Instructions"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized

@@ -32,10 +32,10 @@ Partial Class Consent
         'btnComenzar
         '
         Me.btnComenzar.Font = New System.Drawing.Font("Bahnschrift Condensed", 22.125!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnComenzar.Location = New System.Drawing.Point(16, 1107)
-        Me.btnComenzar.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnComenzar.Location = New System.Drawing.Point(8, 576)
+        Me.btnComenzar.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.btnComenzar.Name = "btnComenzar"
-        Me.btnComenzar.Size = New System.Drawing.Size(599, 172)
+        Me.btnComenzar.Size = New System.Drawing.Size(300, 89)
         Me.btnComenzar.TabIndex = 0
         Me.btnComenzar.Text = "Acepto"
         Me.btnComenzar.UseVisualStyleBackColor = True
@@ -45,10 +45,10 @@ Partial Class Consent
         Me.RichTextBox2.BackColor = System.Drawing.SystemColors.Control
         Me.RichTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.RichTextBox2.Font = New System.Drawing.Font("Bahnschrift Condensed", 19.85!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RichTextBox2.Location = New System.Drawing.Point(16, 15)
-        Me.RichTextBox2.Margin = New System.Windows.Forms.Padding(4)
+        Me.RichTextBox2.Location = New System.Drawing.Point(8, 8)
+        Me.RichTextBox2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.RichTextBox2.Name = "RichTextBox2"
-        Me.RichTextBox2.Size = New System.Drawing.Size(1690, 723)
+        Me.RichTextBox2.Size = New System.Drawing.Size(845, 376)
         Me.RichTextBox2.TabIndex = 4
         Me.RichTextBox2.Text = resources.GetString("RichTextBox2.Text")
         '
@@ -57,34 +57,35 @@ Partial Class Consent
         Me.RichTextBox1.BackColor = System.Drawing.SystemColors.Control
         Me.RichTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.RichTextBox1.Font = New System.Drawing.Font("Bahnschrift Condensed", 19.85!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RichTextBox1.Location = New System.Drawing.Point(16, 808)
-        Me.RichTextBox1.Margin = New System.Windows.Forms.Padding(4)
+        Me.RichTextBox1.Location = New System.Drawing.Point(8, 420)
+        Me.RichTextBox1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.RichTextBox1.Name = "RichTextBox1"
-        Me.RichTextBox1.Size = New System.Drawing.Size(1451, 256)
+        Me.RichTextBox1.Size = New System.Drawing.Size(726, 133)
         Me.RichTextBox1.TabIndex = 5
         Me.RichTextBox1.Text = resources.GetString("RichTextBox1.Text")
         '
         'txbParticipante
         '
         Me.txbParticipante.Font = New System.Drawing.Font("Bahnschrift Condensed", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txbParticipante.Location = New System.Drawing.Point(77, 821)
-        Me.txbParticipante.Margin = New System.Windows.Forms.Padding(4)
+        Me.txbParticipante.Location = New System.Drawing.Point(38, 427)
+        Me.txbParticipante.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.txbParticipante.Multiline = False
         Me.txbParticipante.Name = "txbParticipante"
-        Me.txbParticipante.Size = New System.Drawing.Size(302, 48)
+        Me.txbParticipante.Size = New System.Drawing.Size(153, 27)
         Me.txbParticipante.TabIndex = 3
         Me.txbParticipante.Text = ""
         '
         'Consent
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 25.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1711, 1292)
+        Me.ClientSize = New System.Drawing.Size(685, 389)
         Me.Controls.Add(Me.RichTextBox2)
         Me.Controls.Add(Me.txbParticipante)
         Me.Controls.Add(Me.btnComenzar)
         Me.Controls.Add(Me.RichTextBox1)
-        Me.Margin = New System.Windows.Forms.Padding(4)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Name = "Consent"
         Me.Text = " "
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized

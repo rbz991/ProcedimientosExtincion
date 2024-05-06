@@ -21,7 +21,6 @@ Public Class Main
     End Sub
 
     Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Me.TopMost = True
         vTimeStart = Environment.TickCount
         Me.WindowState = FormWindowState.Maximized
         tmrComponent.Interval = Dur 'Duración del componente
@@ -29,15 +28,18 @@ Public Class Main
         tmrMasUno.Interval = 1000
         If Ini = "RICO" Then
             imgCircleR.Visible = True
-
             imgCircleG.Visible = False
-            imgCircleR.Left = Rand.Next(0, Size.Width / 1.2)
+            imgCircleR.Left = Rand.Next(0, 1250)
+            imgCircleR.Top = Rand.Next(0, 600)
             VIGen(Rich)
+            BackColor = Color.FromArgb(255, 255, 192)
         ElseIf Ini = "POBRE" Then
             imgCircleG.Visible = True
             imgCircleR.Visible = False
-            imgCircleG.Left = Rand.Next(0, Size.Width / 1.2)
+            imgCircleG.Left = Rand.Next(0, 1250)
+            imgCircleG.Top = Rand.Next(0, 600)
             VIGen(Lean)
+            BackColor = Color.FromArgb(192, 255, 255)
         End If
     End Sub
 
@@ -66,8 +68,8 @@ Public Class Main
             WriteLine(1, vTimeNow, currentComponent, 3, 0, 0)
         End If
         lblPoints.Text = Points
-        sender.Left = Rand.Next(0, Size.Width / 1.2)
-        sender.Top = Rand.Next(0, Size.Height / 1.2)
+        sender.Left = Rand.Next(0, 1250)
+        sender.Top = Rand.Next(0, 600)
         If currentComponent = 1 And Ini = "RICO" Then VIGen(Rich)
         If currentComponent = 2 And Ini = "RICO" Then VIGen(Lean)
         If currentComponent = 1 And Ini = "POBRE" Then VIGen(Lean)
@@ -87,35 +89,35 @@ Public Class Main
             If currentComponent = 2 Then
                 imgCircleG.Visible = True
                 imgCircleR.Visible = False
-                imgCircleG.Left = Rand.Next(0, Size.Width / 1.2)
                 VIGen(Lean)
+                BackColor = Color.FromArgb(192, 255, 255)
             ElseIf currentComponent = 3 Then
                 imgCircleR.Visible = True
                 imgCircleG.Visible = False
-                imgCircleR.Left = Rand.Next(0, Size.Width / 1.2)
                 VIGen(Rich)
+                BackColor = Color.FromArgb(255, 255, 192)
             ElseIf currentComponent = 4 Then
                 imgCircleG.Visible = True
                 imgCircleR.Visible = False
-                imgCircleG.Left = Rand.Next(0, Size.Width / 1.2)
                 VIGen(Lean)
+                BackColor = Color.FromArgb(192, 255, 255)
             End If
         ElseIf Ini = "POBRE" Then
             If currentComponent = 2 Then
                 imgCircleR.Visible = True
                 imgCircleG.Visible = False
-                imgCircleR.Left = Rand.Next(0, Size.Width / 1.2)
                 VIGen(Rich)
+                BackColor = Color.FromArgb(255, 255, 192)
             ElseIf currentComponent = 3 Then
                 imgCircleG.Visible = True
                 imgCircleR.Visible = False
-                imgCircleG.Left = Rand.Next(0, Size.Width / 1.2)
                 VIGen(Lean)
+                BackColor = Color.FromArgb(192, 255, 255)
             ElseIf currentComponent = 4 Then
                 imgCircleR.Visible = True
                 imgCircleG.Visible = False
-                imgCircleR.Left = Rand.Next(0, Size.Width / 1.2)
                 VIGen(Rich)
+                BackColor = Color.FromArgb(255, 255, 192)
             End If
         End If
 
@@ -125,6 +127,7 @@ Public Class Main
 
     Private Sub Finish()
         If blnFinished = False Then
+            BackColor = SystemColors.Control
             lblGracias.Visible = True
             lblPoints.Visible = False
             imgCircleR.Visible = False
@@ -181,37 +184,29 @@ Public Class Main
     Dim test = 0
     Dim bln = False
 
-    Private Sub SpawnCircle(circle As String)
-        If circle = "Red" Then
-            imgCircleR.Visible = True
-            imgCircleG.Visible = False
-
-
-        ElseIf circle = "Green" Then
-            imgCircleR.Visible = False
-            imgCircleG.Visible = True
-
-
-        End If
-    End Sub
-
-    Dim top As Byte = 250
-    Dim blntop As Boolean = False
+    Dim topi As Byte = 250
+    Dim blntop As Boolean = True
     Private Sub tmrLerp_Tick(sender As Object, e As EventArgs) Handles tmrLerp.Tick
 
-        If top = 250 And blntop = False Then
-            top -= 10
-            blntop = True
+        If blntop = True Then
+            If imgCircleR.Location.Y <= 0 Or imgCircleG.Location.Y <= 0 Then topi = 5
+            topi -= 5
+            If topi = 0 Then blntop = False
             Dim x As New Point(imgCircleR.Location.X, imgCircleR.Location.Y - 5)
             Dim y As New Point(imgCircleG.Location.X, imgCircleG.Location.Y - 5)
-
-        ElseIf top = 10 And blntop = True Then
-            top += 10
-            blntop = False
+            imgCircleR.Location = x
+            imgCircleG.Location = y
+        ElseIf blntop = False Then
+            If imgCircleR.Location.Y >= Size.Height - 150 Or imgCircleG.Location.Y >= Size.Height - 150 Then topi = 245
+            topi += 5
+            If topi = 250 Then blntop = True
             Dim x As New Point(imgCircleR.Location.X, imgCircleR.Location.Y + 5)
             Dim y As New Point(imgCircleG.Location.X, imgCircleG.Location.Y + 5)
-
+            imgCircleR.Location = x
+            imgCircleG.Location = y
         End If
+
+
 
     End Sub
 
@@ -219,8 +214,10 @@ Public Class Main
         txbFeedback.Enabled = False
         btnFeedback.Enabled = False
         lblFeedback.Text = "¡Felicidades! Has conseguido entrar en la rifa de $200 MXN. Por favor avisa al responsable que termimnaste."
-        FileOpen(2, "C:\Data\Feedback_" & Participante & "_" & Format(Date.Now, "dd-MM-yyyy_hh-mm-ss") & ".txt", OpenMode.Append)
+        FileOpen(2, "C:\Data\ResExt\Feedback_" & Participante & "_" & Format(Date.Now, "dd-MM-yyyy_hh-mm-ss") & ".txt", OpenMode.Append)
         WriteLine(2, txbFeedback.Text)
         FileClose(2)
     End Sub
+
+
 End Class

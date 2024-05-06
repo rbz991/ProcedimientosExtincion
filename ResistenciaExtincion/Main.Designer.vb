@@ -66,7 +66,7 @@ Partial Class Main
         Me.lblMasUno.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblMasUno.AutoSize = True
         Me.lblMasUno.Font = New System.Drawing.Font("Bahnschrift Condensed", 48.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblMasUno.Location = New System.Drawing.Point(209, 162)
+        Me.lblMasUno.Location = New System.Drawing.Point(527, 9)
         Me.lblMasUno.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblMasUno.Name = "lblMasUno"
         Me.lblMasUno.Size = New System.Drawing.Size(71, 77)
@@ -82,7 +82,7 @@ Partial Class Main
         '
         Me.imgCircleG.Image = Global.ResistenciaExtincion.My.Resources.Resources.circleg
         Me.imgCircleG.Location = New System.Drawing.Point(360, 128)
-        Me.imgCircleG.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.imgCircleG.Margin = New System.Windows.Forms.Padding(2)
         Me.imgCircleG.Name = "imgCircleG"
         Me.imgCircleG.Size = New System.Drawing.Size(100, 104)
         Me.imgCircleG.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -93,7 +93,7 @@ Partial Class Main
         '
         Me.imgCircleR.Image = Global.ResistenciaExtincion.My.Resources.Resources.circler
         Me.imgCircleR.Location = New System.Drawing.Point(274, 67)
-        Me.imgCircleR.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.imgCircleR.Margin = New System.Windows.Forms.Padding(2)
         Me.imgCircleR.Name = "imgCircleR"
         Me.imgCircleR.Size = New System.Drawing.Size(100, 104)
         Me.imgCircleR.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -102,7 +102,8 @@ Partial Class Main
         '
         'tmrLerp
         '
-        Me.tmrLerp.Interval = 10
+        Me.tmrLerp.Enabled = True
+        Me.tmrLerp.Interval = 25
         '
         'txbFeedback
         '
@@ -140,6 +141,7 @@ Partial Class Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(609, 292)
         Me.Controls.Add(Me.lblFeedback)
         Me.Controls.Add(Me.btnFeedback)
@@ -149,7 +151,8 @@ Partial Class Main
         Me.Controls.Add(Me.lblPoints)
         Me.Controls.Add(Me.imgCircleG)
         Me.Controls.Add(Me.imgCircleR)
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "Main"
         Me.Text = " "
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
