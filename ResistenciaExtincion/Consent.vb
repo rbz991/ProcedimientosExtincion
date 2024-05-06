@@ -4,10 +4,11 @@ Public Class Consent
         If txbParticipante.Text = "" Then
             MessageBox.Show("Por favor introduce los datos del participante.")
         Else
+            Participante = txbParticipante.Text
             Me.Visible = False
             Dim dir As DirectoryInfo = New DirectoryInfo("C:\Data")
             dir.Create()
-            FileOpen(1, "C:\Data\" & txbParticipante.Text & "_" & Dur & "_" & Rich & "_" & Lean & "_" & Format(Date.Now, "dd-MM-yyyy_hh-mm-ss") & ".txt", OpenMode.Append)
+            FileOpen(1, "C:\Data\" & Participante & "_" & Dur & "_" & Rich & "_" & Lean & "_" & Format(Date.Now, "dd-MM-yyyy_hh-mm-ss") & ".txt", OpenMode.Append)
             Dim y As New Instructions
             y.Show()
         End If

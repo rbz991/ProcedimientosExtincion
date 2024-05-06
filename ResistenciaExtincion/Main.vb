@@ -129,7 +129,10 @@ Public Class Main
             lblPoints.Visible = False
             imgCircleR.Visible = False
             imgCircleG.Visible = False
-            lblGracias.Text = lblGracias.Text & " Obtuviste " & Points & " puntos. Por favor avisa al responsable."
+            lblGracias.Text = "Obtuviste " & Points & " puntos."
+            lblFeedback.Visible = True
+            btnFeedback.Visible = True
+            txbFeedback.Visible = True
             FileClose(1)
             blnFinished = True
         End If
@@ -210,5 +213,14 @@ Public Class Main
 
         End If
 
+    End Sub
+
+    Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnFeedback.Click
+        txbFeedback.Enabled = False
+        btnFeedback.Enabled = False
+        lblFeedback.Text = "¡Felicidades! Has conseguido entrar en la rifa de $200 MXN. Por favor avisa al responsable que termimnaste."
+        FileOpen(2, "C:\Data\Feedback_" & Participante & "_" & Format(Date.Now, "dd-MM-yyyy_hh-mm-ss") & ".txt", OpenMode.Append)
+        WriteLine(2, txbFeedback.Text)
+        FileClose(2)
     End Sub
 End Class
