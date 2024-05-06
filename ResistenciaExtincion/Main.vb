@@ -21,6 +21,7 @@ Public Class Main
     End Sub
 
     Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.TopMost = True
         vTimeStart = Environment.TickCount
         Me.WindowState = FormWindowState.Maximized
         tmrComponent.Interval = Dur 'Duración del componente

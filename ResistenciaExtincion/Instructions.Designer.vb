@@ -32,31 +32,32 @@ Partial Class Instructions
         Me.RichTextBox2.BackColor = System.Drawing.SystemColors.Control
         Me.RichTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.RichTextBox2.Font = New System.Drawing.Font("Bahnschrift Condensed", 19.85!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RichTextBox2.Location = New System.Drawing.Point(13, 13)
-        Me.RichTextBox2.Margin = New System.Windows.Forms.Padding(4)
+        Me.RichTextBox2.Location = New System.Drawing.Point(6, 7)
+        Me.RichTextBox2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.RichTextBox2.Name = "RichTextBox2"
-        Me.RichTextBox2.Size = New System.Drawing.Size(1669, 842)
+        Me.RichTextBox2.Size = New System.Drawing.Size(1009, 438)
         Me.RichTextBox2.TabIndex = 5
         Me.RichTextBox2.Text = resources.GetString("RichTextBox2.Text")
         '
         'btnComenzar
         '
         Me.btnComenzar.Font = New System.Drawing.Font("Bahnschrift Condensed", 22.125!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnComenzar.Location = New System.Drawing.Point(13, 904)
-        Me.btnComenzar.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnComenzar.Location = New System.Drawing.Point(6, 470)
+        Me.btnComenzar.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.btnComenzar.Name = "btnComenzar"
-        Me.btnComenzar.Size = New System.Drawing.Size(599, 172)
+        Me.btnComenzar.Size = New System.Drawing.Size(300, 89)
         Me.btnComenzar.TabIndex = 6
         Me.btnComenzar.Text = "Comenzar"
         Me.btnComenzar.UseVisualStyleBackColor = True
         '
         'Instructions
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 25.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1769, 1089)
+        Me.ClientSize = New System.Drawing.Size(685, 389)
         Me.Controls.Add(Me.btnComenzar)
         Me.Controls.Add(Me.RichTextBox2)
+        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Name = "Instructions"
         Me.Text = "Instructions"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
