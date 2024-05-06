@@ -27,19 +27,20 @@ Public Class Main
         tmrComponent.Enabled = True
         tmrMasUno.Interval = 1000
         If Ini = "RICO" Then
-            imgCircle.Visible = True
-            imgTriangle.Visible = False
-            imgCircle.Left = Rand.Next(0, Size.Width / 1.1)
+            imgCircleR.Visible = True
+
+            imgCircleG.Visible = False
+            imgCircleR.Left = Rand.Next(0, Size.Width / 1.2)
             VIGen(Rich)
         ElseIf Ini = "POBRE" Then
-            imgTriangle.Visible = True
-            imgCircle.Visible = False
-            imgTriangle.Left = Rand.Next(0, Size.Width / 1.1)
+            imgCircleG.Visible = True
+            imgCircleR.Visible = False
+            imgCircleG.Left = Rand.Next(0, Size.Width / 1.2)
             VIGen(Lean)
         End If
     End Sub
 
-    Private Sub imgClick(sender As Object, e As MouseEventArgs) Handles imgTriangle.Click, imgCircle.Click
+    Private Sub imgClick(sender As Object, e As MouseEventArgs) Handles imgCircleG.Click, imgCircleR.Click
         If currentComponent = 5 Then Finish()
         If blnFinished = False Then
             responseCount(currentComponent) += 1
@@ -61,11 +62,11 @@ Public Class Main
             lblMasUno.Top = Size.Height / 2
             lblMasUno.Visible = True
             tmrMasUno.Enabled = True
-            WriteLine(1, vTimeNow, currentComponent, 3)
+            WriteLine(1, vTimeNow, currentComponent, 3, 0, 0)
         End If
         lblPoints.Text = Points
-        sender.Left = Rand.Next(0, Size.Width / 1.1)
-        sender.Top = Rand.Next(0, Size.Height / 1.1)
+        sender.Left = Rand.Next(0, Size.Width / 1.2)
+        sender.Top = Rand.Next(0, Size.Height / 1.2)
         If currentComponent = 1 And Ini = "RICO" Then VIGen(Rich)
         If currentComponent = 2 And Ini = "RICO" Then VIGen(Lean)
         If currentComponent = 1 And Ini = "POBRE" Then VIGen(Lean)
@@ -83,36 +84,36 @@ Public Class Main
         refReady = False
         If Ini = "RICO" Then
             If currentComponent = 2 Then
-                imgTriangle.Visible = True
-                imgCircle.Visible = False
-                imgTriangle.Left = Rand.Next(0, Size.Width / 1.1)
+                imgCircleG.Visible = True
+                imgCircleR.Visible = False
+                imgCircleG.Left = Rand.Next(0, Size.Width / 1.2)
                 VIGen(Lean)
             ElseIf currentComponent = 3 Then
-                imgCircle.Visible = True
-                imgTriangle.Visible = False
-                imgCircle.Left = Rand.Next(0, Size.Width / 1.1)
+                imgCircleR.Visible = True
+                imgCircleG.Visible = False
+                imgCircleR.Left = Rand.Next(0, Size.Width / 1.2)
                 VIGen(Rich)
             ElseIf currentComponent = 4 Then
-                imgTriangle.Visible = True
-                imgCircle.Visible = False
-                imgTriangle.Left = Rand.Next(0, Size.Width / 1.1)
+                imgCircleG.Visible = True
+                imgCircleR.Visible = False
+                imgCircleG.Left = Rand.Next(0, Size.Width / 1.2)
                 VIGen(Lean)
             End If
         ElseIf Ini = "POBRE" Then
             If currentComponent = 2 Then
-                imgCircle.Visible = True
-                imgTriangle.Visible = False
-                imgCircle.Left = Rand.Next(0, Size.Width / 1.1)
+                imgCircleR.Visible = True
+                imgCircleG.Visible = False
+                imgCircleR.Left = Rand.Next(0, Size.Width / 1.2)
                 VIGen(Rich)
             ElseIf currentComponent = 3 Then
-                imgTriangle.Visible = True
-                imgCircle.Visible = False
-                imgTriangle.Left = Rand.Next(0, Size.Width / 1.1)
+                imgCircleG.Visible = True
+                imgCircleR.Visible = False
+                imgCircleG.Left = Rand.Next(0, Size.Width / 1.2)
                 VIGen(Lean)
             ElseIf currentComponent = 4 Then
-                imgCircle.Visible = True
-                imgTriangle.Visible = False
-                imgCircle.Left = Rand.Next(0, Size.Width / 1.1)
+                imgCircleR.Visible = True
+                imgCircleG.Visible = False
+                imgCircleR.Left = Rand.Next(0, Size.Width / 1.2)
                 VIGen(Rich)
             End If
         End If
@@ -125,8 +126,8 @@ Public Class Main
         If blnFinished = False Then
             lblGracias.Visible = True
             lblPoints.Visible = False
-            imgCircle.Visible = False
-            imgTriangle.Visible = False
+            imgCircleR.Visible = False
+            imgCircleG.Visible = False
             lblGracias.Text = lblGracias.Text & " Obtuviste " & Points & " puntos. Por favor avisa al responsable."
             FileClose(1)
             blnFinished = True
@@ -176,6 +177,37 @@ Public Class Main
     Dim test = 0
     Dim bln = False
 
+    Private Sub SpawnCircle(circle As String)
+        If circle = "Red" Then
+            imgCircleR.Visible = True
+            imgCircleG.Visible = False
 
 
+        ElseIf circle = "Green" Then
+            imgCircleR.Visible = False
+            imgCircleG.Visible = True
+
+
+        End If
+    End Sub
+
+    Dim top As Byte = 250
+    Dim blntop As Boolean = False
+    Private Sub tmrLerp_Tick(sender As Object, e As EventArgs) Handles tmrLerp.Tick
+
+        If top = 250 And blntop = False Then
+            top -= 10
+            blntop = True
+            Dim x As New Point(imgCircleR.Location.X, imgCircleR.Location.Y - 5)
+            Dim y As New Point(imgCircleG.Location.X, imgCircleG.Location.Y - 5)
+
+        ElseIf top = 10 And blntop = True Then
+            top += 10
+            blntop = False
+            Dim x As New Point(imgCircleR.Location.X, imgCircleR.Location.Y + 5)
+            Dim y As New Point(imgCircleG.Location.X, imgCircleG.Location.Y + 5)
+
+        End If
+
+    End Sub
 End Class
