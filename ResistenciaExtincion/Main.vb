@@ -213,7 +213,7 @@ Public Class Main
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnFeedback.Click
         txbFeedback.Enabled = False
         btnFeedback.Enabled = False
-        lblFeedback.Text = "¡Felicidades! Has conseguido entrar en la rifa de $200 MXN. Por favor avisa al responsable que termimnaste."
+        lblFeedback.Text = "¡Felicidades! Has conseguido un premio. Por favor avisa al responsable que termimnaste."
         FileOpen(2, "C:\Data\ResExt\Feedback_" & Participante & "_" & Format(Date.Now, "dd-MM-yyyy_hh-mm-ss") & ".txt", OpenMode.Append)
         WriteLine(2, txbFeedback.Text)
         FileClose(2)

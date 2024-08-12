@@ -8,7 +8,7 @@ Public Class Consent
             Me.Visible = False
             Dim dir As DirectoryInfo = New DirectoryInfo("C:\Data\ResExt")
             dir.Create()
-            FileOpen(1, "C:\Data\ResExt\" & Participante & "_" & Dur & "_" & Rich & "_" & Lean & "_" & Format(Date.Now, "dd-MM-yyyy_hh-mm-ss") & ".txt", OpenMode.Append)
+            FileOpen(1, "C:\Data\ResExt\" & Participante & "_" & Ini & "_" & Dur & "_" & Rich & "_" & Lean & "_" & Format(Date.Now, "dd-MM-yyyy_hh-mm-ss") & ".txt", OpenMode.Append)
             Dim y As New Instructions
             y.Show()
         End If
