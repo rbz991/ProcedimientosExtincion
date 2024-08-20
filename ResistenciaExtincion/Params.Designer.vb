@@ -36,31 +36,28 @@ Partial Class Params
         'txbdurIVrico
         '
         Me.txbdurIVrico.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txbdurIVrico.Location = New System.Drawing.Point(672, 8)
-        Me.txbdurIVrico.Margin = New System.Windows.Forms.Padding(4)
+        Me.txbdurIVrico.Location = New System.Drawing.Point(504, 6)
         Me.txbdurIVrico.Name = "txbdurIVrico"
-        Me.txbdurIVrico.Size = New System.Drawing.Size(172, 50)
+        Me.txbdurIVrico.Size = New System.Drawing.Size(130, 39)
         Me.txbdurIVrico.TabIndex = 0
-        Me.txbdurIVrico.Text = "3"
+        Me.txbdurIVrico.Text = "10"
         '
         'txbdurIVpobre
         '
         Me.txbdurIVpobre.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txbdurIVpobre.Location = New System.Drawing.Point(672, 64)
-        Me.txbdurIVpobre.Margin = New System.Windows.Forms.Padding(4)
+        Me.txbdurIVpobre.Location = New System.Drawing.Point(504, 51)
         Me.txbdurIVpobre.Name = "txbdurIVpobre"
-        Me.txbdurIVpobre.Size = New System.Drawing.Size(172, 50)
+        Me.txbdurIVpobre.Size = New System.Drawing.Size(130, 39)
         Me.txbdurIVpobre.TabIndex = 1
-        Me.txbdurIVpobre.Text = "6"
+        Me.txbdurIVpobre.Text = "30"
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(16, 11)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label1.Location = New System.Drawing.Point(12, 9)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(525, 44)
+        Me.Label1.Size = New System.Drawing.Size(392, 32)
         Me.Label1.TabIndex = 2
         Me.Label1.Text = "Duración IV rico en segundos:"
         '
@@ -68,20 +65,18 @@ Partial Class Params
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(16, 68)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label2.Location = New System.Drawing.Point(12, 54)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(560, 44)
+        Me.Label2.Size = New System.Drawing.Size(419, 32)
         Me.Label2.TabIndex = 3
         Me.Label2.Text = "Duración IV pobre en segundos:"
         '
         'Button1
         '
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(857, 13)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(4)
+        Me.Button1.Location = New System.Drawing.Point(643, 10)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(229, 221)
+        Me.Button1.Size = New System.Drawing.Size(172, 177)
         Me.Button1.TabIndex = 4
         Me.Button1.Text = "Siguiente"
         Me.Button1.UseVisualStyleBackColor = True
@@ -90,20 +85,18 @@ Partial Class Params
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(16, 124)
-        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label3.Location = New System.Drawing.Point(12, 99)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(647, 44)
+        Me.Label3.Size = New System.Drawing.Size(484, 32)
         Me.Label3.TabIndex = 5
         Me.Label3.Text = "Duración componentes en segundos:"
         '
         'txbdurComp
         '
         Me.txbdurComp.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txbdurComp.Location = New System.Drawing.Point(672, 120)
-        Me.txbdurComp.Margin = New System.Windows.Forms.Padding(4)
+        Me.txbdurComp.Location = New System.Drawing.Point(504, 96)
         Me.txbdurComp.Name = "txbdurComp"
-        Me.txbdurComp.Size = New System.Drawing.Size(172, 50)
+        Me.txbdurComp.Size = New System.Drawing.Size(130, 39)
         Me.txbdurComp.TabIndex = 6
         Me.txbdurComp.Text = "240"
         '
@@ -111,10 +104,9 @@ Partial Class Params
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(16, 183)
-        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label4.Location = New System.Drawing.Point(12, 146)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(391, 44)
+        Me.Label4.Size = New System.Drawing.Size(292, 32)
         Me.Label4.TabIndex = 7
         Me.Label4.Text = "Inicia en componente:"
         '
@@ -123,17 +115,18 @@ Partial Class Params
         Me.cboInicio.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.875!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboInicio.FormattingEnabled = True
         Me.cboInicio.Items.AddRange(New Object() {"RICO", "POBRE"})
-        Me.cboInicio.Location = New System.Drawing.Point(672, 180)
+        Me.cboInicio.Location = New System.Drawing.Point(504, 144)
+        Me.cboInicio.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.cboInicio.Name = "cboInicio"
-        Me.cboInicio.Size = New System.Drawing.Size(172, 50)
+        Me.cboInicio.Size = New System.Drawing.Size(130, 40)
         Me.cboInicio.TabIndex = 8
         Me.cboInicio.Text = "RICO"
         '
         'Params
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 25.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1099, 247)
+        Me.ClientSize = New System.Drawing.Size(824, 198)
         Me.Controls.Add(Me.cboInicio)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.txbdurComp)
@@ -143,7 +136,6 @@ Partial Class Params
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.txbdurIVpobre)
         Me.Controls.Add(Me.txbdurIVrico)
-        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "Params"
         Me.Text = "Params"
         Me.ResumeLayout(False)

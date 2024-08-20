@@ -2,7 +2,7 @@
 Public Class Main
     Public vTimeStart As Integer = 0
     Private Rand As New Random
-    Private VIList As New List(Of Integer)
+    Private VIList As New List(Of String)
     Private WithEvents tmrVI As Timer = New Timer
     Private WithEvents tmrComponent As Timer = New Timer
     Private WithEvents tmrMasUno As Timer = New Timer
@@ -51,8 +51,8 @@ Public Class Main
             If refReady = True Then
                 refReady = False
                 Reinforce(sender)
-                If currentComponent = 1 Then VIGen(Rich)
-                If currentComponent = 2 Then VIGen(Lean)
+                'If currentComponent = 1 Then VIGen(Rich)
+                'If currentComponent = 2 Then VIGen(Lean)
             End If
             'Text = responseCount(1) & "," & responseCount(2) & "," & responseCount(3) & "," & responseCount(4) & "," & tmrVI.Interval
         End If
@@ -171,6 +171,15 @@ Public Class Main
         tmrVI.Interval = (VIList.Item(p) + 1) * 1000
         tmrVI.Enabled = True
         VIList.RemoveAt(p)
+
+        ListBox1.Items.Clear()
+
+        ListBox1.Items.Add(tmrVI.Interval / 1000)
+        For i = 0 To VIList.Count - 1
+            ListBox1.Items.Add(VIList.Item(i))
+        Next
+
+
     End Sub
 
     Private Function vTimeNow()
