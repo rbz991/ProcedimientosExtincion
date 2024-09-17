@@ -43,7 +43,7 @@ Partial Class Main
         Me.lblPoints.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lblPoints.AutoSize = True
         Me.lblPoints.Font = New System.Drawing.Font("Bahnschrift Condensed", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPoints.Location = New System.Drawing.Point(862, 9)
+        Me.lblPoints.Location = New System.Drawing.Point(830, 9)
         Me.lblPoints.Name = "lblPoints"
         Me.lblPoints.Size = New System.Drawing.Size(45, 58)
         Me.lblPoints.TabIndex = 5
@@ -65,7 +65,7 @@ Partial Class Main
         Me.lblMasUno.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lblMasUno.AutoSize = True
         Me.lblMasUno.Font = New System.Drawing.Font("Bahnschrift Condensed", 48.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblMasUno.Location = New System.Drawing.Point(790, 14)
+        Me.lblMasUno.Location = New System.Drawing.Point(733, 43)
         Me.lblMasUno.Name = "lblMasUno"
         Me.lblMasUno.Size = New System.Drawing.Size(107, 115)
         Me.lblMasUno.TabIndex = 7

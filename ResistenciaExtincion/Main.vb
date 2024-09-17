@@ -8,7 +8,7 @@ Public Class Main
     Private WithEvents tmrMasUno As Timer = New Timer
     Private refReady As Boolean = False
     Private currentComponent As Byte = 1
-    Private Points As Byte
+    Private Points As Integer
     Private prevVI As Byte
     Private responseCount(4) As Integer
     Private blnFinished As Boolean = False
@@ -18,28 +18,43 @@ Public Class Main
         If blnFinished = False Then
             WriteLine(1, vTimeNow, currentComponent, 0, MousePosition.X, MousePosition.Y)
         End If
+        If CostRes = True Then Points -= 1
+        If CostRes = True Then lblPoints.Text = Points
     End Sub
 
     Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         vTimeStart = Environment.TickCount
         Me.WindowState = FormWindowState.Maximized
-        tmrComponent.Interval = Dur 'Duración del componente
+        If Proc = "RES" Then tmrComponent.Interval = Dur 'Duración del componente
+        If Proc = "REN" Then tmrComponent.Interval = RenPhasesDur(0)
         tmrComponent.Enabled = True
         tmrMasUno.Interval = 1000
-        If Ini = "RICO" Then
+        If CostRes = True Then Points = 1000
+        If CostRes = True Then lblPoints.Text = 1000
+        If CostRes = True Then lblMasUno.Text = "+100"
+        If Proc = "RES" Then
+            If Ini = "RIC" Then
+                imgCircleR.Visible = True
+                imgCircleG.Visible = False
+                imgCircleR.Left = Rand.Next(0, 1250)
+                imgCircleR.Top = Rand.Next(0, 600)
+                VIGen(Rich)
+                BackColor = Color.FromArgb(255, 255, 192)
+            ElseIf Ini = "POB" Then
+                imgCircleG.Visible = True
+                imgCircleR.Visible = False
+                imgCircleG.Left = Rand.Next(0, 1250)
+                imgCircleG.Top = Rand.Next(0, 600)
+                VIGen(Lean)
+                BackColor = Color.FromArgb(192, 255, 255)
+            End If
+        ElseIf Proc = "REN" Then
             imgCircleR.Visible = True
             imgCircleG.Visible = False
             imgCircleR.Left = Rand.Next(0, 1250)
             imgCircleR.Top = Rand.Next(0, 600)
-            VIGen(Rich)
+            VIGen(RenIV)
             BackColor = Color.FromArgb(255, 255, 192)
-        ElseIf Ini = "POBRE" Then
-            imgCircleG.Visible = True
-            imgCircleR.Visible = False
-            imgCircleG.Left = Rand.Next(0, 1250)
-            imgCircleG.Top = Rand.Next(0, 600)
-            VIGen(Lean)
-            BackColor = Color.FromArgb(192, 255, 255)
         End If
     End Sub
 
@@ -48,6 +63,8 @@ Public Class Main
         If blnFinished = False Then
             responseCount(currentComponent) += 1
             WriteLine(1, vTimeNow, currentComponent, 1, MousePosition.X, MousePosition.Y)
+            If CostRes = True Then Points -= 1
+            If CostRes = True Then lblPoints.Text = Points
             If refReady = True Then
                 refReady = False
                 Reinforce(sender)
@@ -60,7 +77,10 @@ Public Class Main
 
     Private Sub Reinforce(sender)
         If currentComponent = 1 Or currentComponent = 2 Then
-            Points += 1
+
+            If CostRes = True Then Points += 100
+            If CostRes = False Then Points += 1
+
             lblMasUno.Left = Size.Width / 2
             lblMasUno.Top = Size.Height / 2
             lblMasUno.Visible = True
@@ -70,10 +90,15 @@ Public Class Main
         lblPoints.Text = Points
         sender.Left = Rand.Next(0, 1250)
         sender.Top = Rand.Next(0, 600)
-        If currentComponent = 1 And Ini = "RICO" Then VIGen(Rich)
-        If currentComponent = 2 And Ini = "RICO" Then VIGen(Lean)
-        If currentComponent = 1 And Ini = "POBRE" Then VIGen(Lean)
-        If currentComponent = 2 And Ini = "POBRE" Then VIGen(Rich)
+        If Proc = "RES" Then
+            If currentComponent = 1 And Ini = "RIC" Then VIGen(Rich)
+            If currentComponent = 2 And Ini = "RIC" Then VIGen(Lean)
+            If currentComponent = 1 And Ini = "POB" Then VIGen(Lean)
+            If currentComponent = 2 And Ini = "POB" Then VIGen(Rich)
+        ElseIf Proc = "REN" Then
+            VIGen(RenIV)
+        End If
+
     End Sub
 
     Private Sub tmrMasUno_Tick() Handles tmrMasUno.Tick
@@ -85,44 +110,60 @@ Public Class Main
         currentComponent += 1
         VIList.Clear()
         refReady = False
-        If Ini = "RICO" Then
+        If Proc = "RES" Then
+            If Ini = "RIC" Then
+                If currentComponent = 2 Then
+                    imgCircleG.Visible = True
+                    imgCircleR.Visible = False
+                    VIGen(Lean)
+                    BackColor = Color.FromArgb(192, 255, 255)
+                ElseIf currentComponent = 3 Then
+                    imgCircleR.Visible = True
+                    imgCircleG.Visible = False
+                    VIGen(Rich)
+                    BackColor = Color.FromArgb(255, 255, 192)
+                ElseIf currentComponent = 4 Then
+                    imgCircleG.Visible = True
+                    imgCircleR.Visible = False
+                    VIGen(Lean)
+                    BackColor = Color.FromArgb(192, 255, 255)
+                End If
+            ElseIf Ini = "POB" Then
+                If currentComponent = 2 Then
+                    imgCircleR.Visible = True
+                    imgCircleG.Visible = False
+                    VIGen(Rich)
+                    BackColor = Color.FromArgb(255, 255, 192)
+                ElseIf currentComponent = 3 Then
+                    imgCircleG.Visible = True
+                    imgCircleR.Visible = False
+                    VIGen(Lean)
+                    BackColor = Color.FromArgb(192, 255, 255)
+                ElseIf currentComponent = 4 Then
+                    imgCircleR.Visible = True
+                    imgCircleG.Visible = False
+                    VIGen(Rich)
+                    BackColor = Color.FromArgb(255, 255, 192)
+                End If
+            End If
+        ElseIf Proc = "REN" Then
+            tmrComponent.Enabled = False
             If currentComponent = 2 Then
-                imgCircleG.Visible = True
+                tmrComponent.Interval = RenPhasesDur(1)
                 imgCircleR.Visible = False
-                VIGen(Lean)
+                imgCircleG.Visible = True
                 BackColor = Color.FromArgb(192, 255, 255)
             ElseIf currentComponent = 3 Then
+                tmrComponent.Interval = RenPhasesDur(2)
                 imgCircleR.Visible = True
                 imgCircleG.Visible = False
-                VIGen(Rich)
-                BackColor = Color.FromArgb(255, 255, 192)
-            ElseIf currentComponent = 4 Then
-                imgCircleG.Visible = True
-                imgCircleR.Visible = False
-                VIGen(Lean)
-                BackColor = Color.FromArgb(192, 255, 255)
-            End If
-        ElseIf Ini = "POBRE" Then
-            If currentComponent = 2 Then
-                imgCircleR.Visible = True
-                imgCircleG.Visible = False
-                VIGen(Rich)
-                BackColor = Color.FromArgb(255, 255, 192)
-            ElseIf currentComponent = 3 Then
-                imgCircleG.Visible = True
-                imgCircleR.Visible = False
-                VIGen(Lean)
-                BackColor = Color.FromArgb(192, 255, 255)
-            ElseIf currentComponent = 4 Then
-                imgCircleR.Visible = True
-                imgCircleG.Visible = False
-                VIGen(Rich)
                 BackColor = Color.FromArgb(255, 255, 192)
             End If
+            tmrComponent.Enabled = True
         End If
 
-
-        If currentComponent = 5 Then Finish()
+        If Proc = "RES" And currentComponent = 5 Then Finish()
+        If Proc = "REN" And currentComponent = 4 Then Finish()
     End Sub
 
     Private Sub Finish()
