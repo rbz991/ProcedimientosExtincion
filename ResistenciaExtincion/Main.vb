@@ -10,29 +10,40 @@ Public Class Main
     Private currentComponent As Byte = 1
     Private Points As Integer
     Private prevVI As Byte
-    Private responseCount(4) As Integer
+    Private responseCountLeft(4) As Integer
+    Private responseCountRight(4) As Integer
     Private blnFinished As Boolean = False
 
     Private Sub form_click(sender As Object, e As MouseEventArgs) Handles Me.Click
         If currentComponent = 5 Then Finish()
         If blnFinished = False Then
-            WriteLine(1, vTimeNow, currentComponent, 0, MousePosition.X, MousePosition.Y)
+            If e.Button = MouseButtons.Left Then
+                WriteLine(1, vTimeNow, currentComponent, 0, MousePosition.X, MousePosition.Y)
+            ElseIf e.Button = MouseButtons.Right Then
+                WriteLine(1, vTimeNow, currentComponent, 1, MousePosition.X, MousePosition.Y)
+            End If
+            If CostRes = True Then Points -= 1
+            If CostRes = True Then lblPoints.Text = Points
         End If
-        If CostRes = True Then Points -= 1
-        If CostRes = True Then lblPoints.Text = Points
+
     End Sub
 
     Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         vTimeStart = Environment.TickCount
         Me.WindowState = FormWindowState.Maximized
-        If Proc = "RES" Then tmrComponent.Interval = Dur 'Duración del componente
-        If Proc = "REN" Then tmrComponent.Interval = RenPhasesDur(0)
+        If Proc = "RESI" Then
+            tmrComponent.Interval = Dur 'Duración del componente
+        Else
+            tmrComponent.Interval = PhasesDur(0)
+        End If
+
+
         tmrComponent.Enabled = True
         tmrMasUno.Interval = 1000
         If CostRes = True Then Points = 1000
         If CostRes = True Then lblPoints.Text = 1000
         If CostRes = True Then lblMasUno.Text = "+100"
-        If Proc = "RES" Then
+        If Proc = "RESI" Then
             If Ini = "RIC" Then
                 imgCircleR.Visible = True
                 imgCircleG.Visible = False
@@ -48,30 +59,42 @@ Public Class Main
                 VIGen(Lean)
                 BackColor = Color.FromArgb(192, 255, 255)
             End If
-        ElseIf Proc = "REN" Then
+        Else
             imgCircleR.Visible = True
             imgCircleG.Visible = False
             imgCircleR.Left = Rand.Next(0, 1250)
             imgCircleR.Top = Rand.Next(0, 600)
-            VIGen(RenIV)
+            VIGen(SingleIV)
             BackColor = Color.FromArgb(255, 255, 192)
+
         End If
     End Sub
 
     Private Sub imgClick(sender As Object, e As MouseEventArgs) Handles imgCircleG.Click, imgCircleR.Click
         If currentComponent = 5 Then Finish()
         If blnFinished = False Then
-            responseCount(currentComponent) += 1
-            WriteLine(1, vTimeNow, currentComponent, 1, MousePosition.X, MousePosition.Y)
-            If CostRes = True Then Points -= 1
-            If CostRes = True Then lblPoints.Text = Points
-            If refReady = True Then
-                refReady = False
-                Reinforce(sender)
-                'If currentComponent = 1 Then VIGen(Rich)
-                'If currentComponent = 2 Then VIGen(Lean)
+            If e.Button = MouseButtons.Left Then
+                WriteLine(1, vTimeNow, currentComponent, 2, MousePosition.X, MousePosition.Y)
+                responseCountLeft(currentComponent) += 1
+
+
+
+            ElseIf e.Button = MouseButtons.Right Then
+                WriteLine(1, vTimeNow, currentComponent, 3, MousePosition.X, MousePosition.Y)
+                responseCountRight(currentComponent) += 1
+
+
             End If
-            'Text = responseCount(1) & "," & responseCount(2) & "," & responseCount(3) & "," & responseCount(4) & "," & tmrVI.Interval
+
+            If refReady = True Then
+                If (Proc <> "RESU") Or (currentComponent = 2) Then 'Evita que se refuerce
+                    refReady = False
+                    Reinforce(sender)
+                End If
+            End If
+
+                If CostRes = True Then Points -= 1
+            If CostRes = True Then lblPoints.Text = Points
         End If
     End Sub
 
@@ -85,18 +108,19 @@ Public Class Main
             lblMasUno.Top = Size.Height / 2
             lblMasUno.Visible = True
             tmrMasUno.Enabled = True
-            WriteLine(1, vTimeNow, currentComponent, 3, 0, 0)
+            WriteLine(1, vTimeNow, currentComponent, 4, 0, 0)
         End If
         lblPoints.Text = Points
         sender.Left = Rand.Next(0, 1250)
         sender.Top = Rand.Next(0, 600)
-        If Proc = "RES" Then
+        If Proc = "RESI" Then
             If currentComponent = 1 And Ini = "RIC" Then VIGen(Rich)
             If currentComponent = 2 And Ini = "RIC" Then VIGen(Lean)
             If currentComponent = 1 And Ini = "POB" Then VIGen(Lean)
             If currentComponent = 2 And Ini = "POB" Then VIGen(Rich)
-        ElseIf Proc = "REN" Then
-            VIGen(RenIV)
+        Else
+            If currentComponent = 1 Then VIGen(SingleIV)
+            If currentComponent = 2 And Proc = "RESU" Then VIGen(SingleIV)
         End If
 
     End Sub
@@ -110,7 +134,7 @@ Public Class Main
         currentComponent += 1
         VIList.Clear()
         refReady = False
-        If Proc = "RES" Then
+        If Proc = "RESI" Then
             If Ini = "RIC" Then
                 If currentComponent = 2 Then
                     imgCircleG.Visible = True
@@ -146,15 +170,17 @@ Public Class Main
                     BackColor = Color.FromArgb(255, 255, 192)
                 End If
             End If
-        ElseIf Proc = "REN" Then
+        Else
+            If Proc = "Rest" Then tmrRest.Enabled = True
             tmrComponent.Enabled = False
             If currentComponent = 2 Then
-                tmrComponent.Interval = RenPhasesDur(1)
+                If Proc = "RESU" Then VIGen(SingleIV)
+                tmrComponent.Interval = PhasesDur(1)
                 imgCircleR.Visible = False
                 imgCircleG.Visible = True
                 BackColor = Color.FromArgb(192, 255, 255)
             ElseIf currentComponent = 3 Then
-                tmrComponent.Interval = RenPhasesDur(2)
+                tmrComponent.Interval = PhasesDur(2)
                 imgCircleR.Visible = True
                 imgCircleG.Visible = False
                 BackColor = Color.FromArgb(255, 255, 192)
@@ -162,8 +188,8 @@ Public Class Main
             tmrComponent.Enabled = True
         End If
 
-        If Proc = "RES" And currentComponent = 5 Then Finish()
-        If Proc = "REN" And currentComponent = 4 Then Finish()
+        If Proc = "RESI" And currentComponent = 5 Then Finish()
+        If Proc <> "RESI" And currentComponent = 4 Then Finish()
     End Sub
 
     Private Sub Finish()
@@ -177,6 +203,18 @@ Public Class Main
             lblFeedback.Visible = True
             btnFeedback.Visible = True
             txbFeedback.Visible = True
+            Dim l = 0
+            Dim r = 0
+            For i = 1 To 4
+                WriteLine(1, "Left Responses C" & i & ": " & responseCountLeft(i))
+                l += responseCountLeft(i)
+            Next
+            WriteLine(1, "Total Responses Left: " & l)
+            For i = 1 To 4
+                WriteLine(1, "Right Responses C" & i & ": " & responseCountRight(i))
+                r += responseCountRight(i)
+            Next
+            WriteLine(1, "Total Responses Right: " & r)
             FileClose(1)
             blnFinished = True
         End If
@@ -184,7 +222,14 @@ Public Class Main
 
     Private Sub tmrVI_Tick() Handles tmrVI.Tick
         tmrVI.Enabled = False
-        refReady = True
+        If Proc = "RESI" Then
+            refReady = True
+        ElseIf Proc = "RENO" Or Proc = "REST" Then
+            If currentComponent = 1 Then refReady = True
+        ElseIf Proc = "RESU" Then
+            If currentComponent = 1 Or currentComponent = 2 Then refReady = True
+        End If
+
     End Sub
 
     Private Sub VIGen(v)
@@ -269,5 +314,22 @@ Public Class Main
         FileClose(2)
     End Sub
 
+    Private Sub tmrRest_Tick(sender As Object, e As EventArgs) Handles tmrRest.Tick
+        RestCounter += 1
+        If RestCounter >= 3 Then
+            tmrRest.Enabled = False
+        End If
 
+        If CostRes = True Then Points += 100
+        If CostRes = False Then Points += 1
+        lblPoints.Text = Points
+        lblMasUno.Left = Size.Width / 2
+        lblMasUno.Top = Size.Height / 2
+        lblMasUno.Visible = True
+        tmrMasUno.Enabled = True
+        WriteLine(1, vTimeNow, currentComponent, 5, 0, 0)
+
+
+
+    End Sub
 End Class

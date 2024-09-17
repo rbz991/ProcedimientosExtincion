@@ -6,8 +6,9 @@
     Public Lean As Byte = 0
     Public Ini As String = ""
     Public Proc As String = ""
-    Public RenIV As Byte = 0
+    Public SingleIV As Byte = 0
     Public CostRes As Boolean = False
-    Public RenPhasesDur(2) As Integer
+    Public PhasesDur(2) As Integer
+    Public RestCounter As Byte = 0
 
 End Module

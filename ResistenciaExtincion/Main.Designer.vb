@@ -34,6 +34,7 @@ Partial Class Main
         Me.btnFeedback = New System.Windows.Forms.Button()
         Me.lblFeedback = New System.Windows.Forms.Label()
         Me.ListBox1 = New System.Windows.Forms.ListBox()
+        Me.tmrRest = New System.Windows.Forms.Timer(Me.components)
         CType(Me.imgCircleG, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.imgCircleR, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -144,6 +145,10 @@ Partial Class Main
         Me.ListBox1.TabIndex = 11
         Me.ListBox1.Visible = False
         '
+        'tmrRest
+        '
+        Me.tmrRest.Interval = 2000
+        '
         'Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
@@ -181,4 +186,5 @@ Partial Class Main
     Friend WithEvents btnFeedback As Button
     Friend WithEvents lblFeedback As Label
     Friend WithEvents ListBox1 As ListBox
+    Friend WithEvents tmrRest As Timer
 End Class

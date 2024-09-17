@@ -33,39 +33,39 @@ Partial Class Params
         Me.cboResInicio = New System.Windows.Forms.ComboBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.cboProc = New System.Windows.Forms.ComboBox()
-        Me.grpRES = New System.Windows.Forms.GroupBox()
-        Me.grpREN = New System.Windows.Forms.GroupBox()
-        Me.txbRenIV = New System.Windows.Forms.TextBox()
+        Me.grpRESI = New System.Windows.Forms.GroupBox()
+        Me.grpRENO = New System.Windows.Forms.GroupBox()
+        Me.txbRenoIV = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.chkCostoRes = New System.Windows.Forms.CheckBox()
-        Me.txbP1Dur = New System.Windows.Forms.TextBox()
+        Me.txbRenoP1Dur = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.txbP2Dur = New System.Windows.Forms.TextBox()
+        Me.txbRenoP2Dur = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.txbP3Dur = New System.Windows.Forms.TextBox()
+        Me.txbRenoP3Dur = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.grpREST = New System.Windows.Forms.GroupBox()
+        Me.txbRestP3Dur = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.txbRestP2Dur = New System.Windows.Forms.TextBox()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.txbRestP1Dur = New System.Windows.Forms.TextBox()
         Me.Label12 = New System.Windows.Forms.Label()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
+        Me.txbRestIV = New System.Windows.Forms.TextBox()
         Me.Label13 = New System.Windows.Forms.Label()
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.grpRESU = New System.Windows.Forms.GroupBox()
+        Me.txbResuP3Dur = New System.Windows.Forms.TextBox()
         Me.Label14 = New System.Windows.Forms.Label()
-        Me.TextBox5 = New System.Windows.Forms.TextBox()
-        Me.TextBox6 = New System.Windows.Forms.TextBox()
+        Me.txbResuP2Dur = New System.Windows.Forms.TextBox()
         Me.Label15 = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.txbResuP1Dur = New System.Windows.Forms.TextBox()
         Me.Label16 = New System.Windows.Forms.Label()
+        Me.txbResuIV = New System.Windows.Forms.TextBox()
         Me.Label17 = New System.Windows.Forms.Label()
-        Me.TextBox7 = New System.Windows.Forms.TextBox()
-        Me.grpRES.SuspendLayout()
-        Me.grpREN.SuspendLayout()
-        Me.GroupBox1.SuspendLayout()
-        Me.GroupBox2.SuspendLayout()
+        Me.grpRESI.SuspendLayout()
+        Me.grpRENO.SuspendLayout()
+        Me.grpREST.SuspendLayout()
+        Me.grpRESU.SuspendLayout()
         Me.SuspendLayout()
         '
         'txbdurIVrico
@@ -109,9 +109,9 @@ Partial Class Params
         'Button1
         '
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(906, 12)
+        Me.Button1.Location = New System.Drawing.Point(615, 7)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(241, 297)
+        Me.Button1.Size = New System.Drawing.Size(224, 562)
         Me.Button1.TabIndex = 4
         Me.Button1.Text = "Siguiente"
         Me.Button1.UseVisualStyleBackColor = True
@@ -171,58 +171,58 @@ Partial Class Params
         '
         Me.cboProc.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.875!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboProc.FormattingEnabled = True
-        Me.cboProc.Items.AddRange(New Object() {"RES", "REN"})
+        Me.cboProc.Items.AddRange(New Object() {"RESI", "RENO", "RESU", "REST"})
         Me.cboProc.Location = New System.Drawing.Point(222, 7)
         Me.cboProc.Margin = New System.Windows.Forms.Padding(2)
         Me.cboProc.Name = "cboProc"
         Me.cboProc.Size = New System.Drawing.Size(130, 40)
         Me.cboProc.TabIndex = 10
-        Me.cboProc.Text = "REN"
+        Me.cboProc.Text = "RENO"
         '
-        'grpRES
+        'grpRESI
         '
-        Me.grpRES.Controls.Add(Me.Label4)
-        Me.grpRES.Controls.Add(Me.txbdurIVrico)
-        Me.grpRES.Controls.Add(Me.txbdurIVpobre)
-        Me.grpRES.Controls.Add(Me.Label1)
-        Me.grpRES.Controls.Add(Me.cboResInicio)
-        Me.grpRES.Controls.Add(Me.Label2)
-        Me.grpRES.Controls.Add(Me.Label3)
-        Me.grpRES.Controls.Add(Me.txbdurComp)
-        Me.grpRES.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.grpRES.Location = New System.Drawing.Point(18, 58)
-        Me.grpRES.Name = "grpRES"
-        Me.grpRES.Size = New System.Drawing.Size(283, 249)
-        Me.grpRES.TabIndex = 11
-        Me.grpRES.TabStop = False
-        Me.grpRES.Text = "RESISTENCIA"
+        Me.grpRESI.Controls.Add(Me.Label4)
+        Me.grpRESI.Controls.Add(Me.txbdurIVrico)
+        Me.grpRESI.Controls.Add(Me.txbdurIVpobre)
+        Me.grpRESI.Controls.Add(Me.Label1)
+        Me.grpRESI.Controls.Add(Me.cboResInicio)
+        Me.grpRESI.Controls.Add(Me.Label2)
+        Me.grpRESI.Controls.Add(Me.Label3)
+        Me.grpRESI.Controls.Add(Me.txbdurComp)
+        Me.grpRESI.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.grpRESI.Location = New System.Drawing.Point(18, 58)
+        Me.grpRESI.Name = "grpRESI"
+        Me.grpRESI.Size = New System.Drawing.Size(283, 249)
+        Me.grpRESI.TabIndex = 11
+        Me.grpRESI.TabStop = False
+        Me.grpRESI.Text = "RESI"
         '
-        'grpREN
+        'grpRENO
         '
-        Me.grpREN.Controls.Add(Me.txbP3Dur)
-        Me.grpREN.Controls.Add(Me.Label9)
-        Me.grpREN.Controls.Add(Me.txbP2Dur)
-        Me.grpREN.Controls.Add(Me.Label8)
-        Me.grpREN.Controls.Add(Me.txbP1Dur)
-        Me.grpREN.Controls.Add(Me.Label7)
-        Me.grpREN.Controls.Add(Me.txbRenIV)
-        Me.grpREN.Controls.Add(Me.Label6)
-        Me.grpREN.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.grpREN.Location = New System.Drawing.Point(326, 65)
-        Me.grpREN.Name = "grpREN"
-        Me.grpREN.Size = New System.Drawing.Size(283, 242)
-        Me.grpREN.TabIndex = 12
-        Me.grpREN.TabStop = False
-        Me.grpREN.Text = "RENOVACIÓN"
+        Me.grpRENO.Controls.Add(Me.txbRenoP3Dur)
+        Me.grpRENO.Controls.Add(Me.Label9)
+        Me.grpRENO.Controls.Add(Me.txbRenoP2Dur)
+        Me.grpRENO.Controls.Add(Me.Label8)
+        Me.grpRENO.Controls.Add(Me.txbRenoP1Dur)
+        Me.grpRENO.Controls.Add(Me.Label7)
+        Me.grpRENO.Controls.Add(Me.txbRenoIV)
+        Me.grpRENO.Controls.Add(Me.Label6)
+        Me.grpRENO.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.grpRENO.Location = New System.Drawing.Point(326, 65)
+        Me.grpRENO.Name = "grpRENO"
+        Me.grpRENO.Size = New System.Drawing.Size(283, 242)
+        Me.grpRENO.TabIndex = 12
+        Me.grpRENO.TabStop = False
+        Me.grpRENO.Text = "RENO"
         '
-        'txbRenIV
+        'txbRenoIV
         '
-        Me.txbRenIV.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txbRenIV.Location = New System.Drawing.Point(136, 48)
-        Me.txbRenIV.Name = "txbRenIV"
-        Me.txbRenIV.Size = New System.Drawing.Size(119, 39)
-        Me.txbRenIV.TabIndex = 3
-        Me.txbRenIV.Text = "2"
+        Me.txbRenoIV.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txbRenoIV.Location = New System.Drawing.Point(136, 48)
+        Me.txbRenoIV.Name = "txbRenoIV"
+        Me.txbRenoIV.Size = New System.Drawing.Size(119, 39)
+        Me.txbRenoIV.TabIndex = 3
+        Me.txbRenoIV.Text = "2"
         '
         'Label6
         '
@@ -245,14 +245,14 @@ Partial Class Params
         Me.chkCostoRes.Text = "Costo respuesta"
         Me.chkCostoRes.UseVisualStyleBackColor = True
         '
-        'txbP1Dur
+        'txbRenoP1Dur
         '
-        Me.txbP1Dur.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txbP1Dur.Location = New System.Drawing.Point(136, 93)
-        Me.txbP1Dur.Name = "txbP1Dur"
-        Me.txbP1Dur.Size = New System.Drawing.Size(119, 39)
-        Me.txbP1Dur.TabIndex = 5
-        Me.txbP1Dur.Text = "180"
+        Me.txbRenoP1Dur.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txbRenoP1Dur.Location = New System.Drawing.Point(136, 93)
+        Me.txbRenoP1Dur.Name = "txbRenoP1Dur"
+        Me.txbRenoP1Dur.Size = New System.Drawing.Size(119, 39)
+        Me.txbRenoP1Dur.TabIndex = 5
+        Me.txbRenoP1Dur.Text = "180"
         '
         'Label7
         '
@@ -264,14 +264,14 @@ Partial Class Params
         Me.Label7.TabIndex = 6
         Me.Label7.Text = "P1 DUR:"
         '
-        'txbP2Dur
+        'txbRenoP2Dur
         '
-        Me.txbP2Dur.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txbP2Dur.Location = New System.Drawing.Point(136, 138)
-        Me.txbP2Dur.Name = "txbP2Dur"
-        Me.txbP2Dur.Size = New System.Drawing.Size(119, 39)
-        Me.txbP2Dur.TabIndex = 7
-        Me.txbP2Dur.Text = "360"
+        Me.txbRenoP2Dur.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txbRenoP2Dur.Location = New System.Drawing.Point(136, 138)
+        Me.txbRenoP2Dur.Name = "txbRenoP2Dur"
+        Me.txbRenoP2Dur.Size = New System.Drawing.Size(119, 39)
+        Me.txbRenoP2Dur.TabIndex = 7
+        Me.txbRenoP2Dur.Text = "240"
         '
         'Label8
         '
@@ -283,14 +283,14 @@ Partial Class Params
         Me.Label8.TabIndex = 8
         Me.Label8.Text = "P2 DUR:"
         '
-        'txbP3Dur
+        'txbRenoP3Dur
         '
-        Me.txbP3Dur.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txbP3Dur.Location = New System.Drawing.Point(136, 183)
-        Me.txbP3Dur.Name = "txbP3Dur"
-        Me.txbP3Dur.Size = New System.Drawing.Size(119, 39)
-        Me.txbP3Dur.TabIndex = 9
-        Me.txbP3Dur.Text = "60"
+        Me.txbRenoP3Dur.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txbRenoP3Dur.Location = New System.Drawing.Point(136, 183)
+        Me.txbRenoP3Dur.Name = "txbRenoP3Dur"
+        Me.txbRenoP3Dur.Size = New System.Drawing.Size(119, 39)
+        Me.txbRenoP3Dur.TabIndex = 9
+        Me.txbRenoP3Dur.Text = "60"
         '
         'Label9
         '
@@ -302,32 +302,32 @@ Partial Class Params
         Me.Label9.TabIndex = 10
         Me.Label9.Text = "P3 DUR:"
         '
-        'GroupBox1
+        'grpREST
         '
-        Me.GroupBox1.Controls.Add(Me.TextBox1)
-        Me.GroupBox1.Controls.Add(Me.Label10)
-        Me.GroupBox1.Controls.Add(Me.TextBox2)
-        Me.GroupBox1.Controls.Add(Me.Label11)
-        Me.GroupBox1.Controls.Add(Me.TextBox3)
-        Me.GroupBox1.Controls.Add(Me.Label12)
-        Me.GroupBox1.Controls.Add(Me.TextBox4)
-        Me.GroupBox1.Controls.Add(Me.Label13)
-        Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox1.Location = New System.Drawing.Point(326, 327)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(283, 242)
-        Me.GroupBox1.TabIndex = 16
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "RESTABLECIMIENTO"
+        Me.grpREST.Controls.Add(Me.txbRestP3Dur)
+        Me.grpREST.Controls.Add(Me.Label10)
+        Me.grpREST.Controls.Add(Me.txbRestP2Dur)
+        Me.grpREST.Controls.Add(Me.Label11)
+        Me.grpREST.Controls.Add(Me.txbRestP1Dur)
+        Me.grpREST.Controls.Add(Me.Label12)
+        Me.grpREST.Controls.Add(Me.txbRestIV)
+        Me.grpREST.Controls.Add(Me.Label13)
+        Me.grpREST.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.grpREST.Location = New System.Drawing.Point(326, 327)
+        Me.grpREST.Name = "grpREST"
+        Me.grpREST.Size = New System.Drawing.Size(283, 242)
+        Me.grpREST.TabIndex = 16
+        Me.grpREST.TabStop = False
+        Me.grpREST.Text = "REST"
         '
-        'TextBox1
+        'txbRestP3Dur
         '
-        Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(136, 183)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(119, 39)
-        Me.TextBox1.TabIndex = 9
-        Me.TextBox1.Text = "60"
+        Me.txbRestP3Dur.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txbRestP3Dur.Location = New System.Drawing.Point(136, 183)
+        Me.txbRestP3Dur.Name = "txbRestP3Dur"
+        Me.txbRestP3Dur.Size = New System.Drawing.Size(119, 39)
+        Me.txbRestP3Dur.TabIndex = 9
+        Me.txbRestP3Dur.Text = "60"
         '
         'Label10
         '
@@ -339,14 +339,14 @@ Partial Class Params
         Me.Label10.TabIndex = 10
         Me.Label10.Text = "P3 DUR:"
         '
-        'TextBox2
+        'txbRestP2Dur
         '
-        Me.TextBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox2.Location = New System.Drawing.Point(136, 138)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(119, 39)
-        Me.TextBox2.TabIndex = 7
-        Me.TextBox2.Text = "360"
+        Me.txbRestP2Dur.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txbRestP2Dur.Location = New System.Drawing.Point(136, 138)
+        Me.txbRestP2Dur.Name = "txbRestP2Dur"
+        Me.txbRestP2Dur.Size = New System.Drawing.Size(119, 39)
+        Me.txbRestP2Dur.TabIndex = 7
+        Me.txbRestP2Dur.Text = "240"
         '
         'Label11
         '
@@ -358,14 +358,14 @@ Partial Class Params
         Me.Label11.TabIndex = 8
         Me.Label11.Text = "P2 DUR:"
         '
-        'TextBox3
+        'txbRestP1Dur
         '
-        Me.TextBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox3.Location = New System.Drawing.Point(136, 93)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(119, 39)
-        Me.TextBox3.TabIndex = 5
-        Me.TextBox3.Text = "180"
+        Me.txbRestP1Dur.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txbRestP1Dur.Location = New System.Drawing.Point(136, 93)
+        Me.txbRestP1Dur.Name = "txbRestP1Dur"
+        Me.txbRestP1Dur.Size = New System.Drawing.Size(119, 39)
+        Me.txbRestP1Dur.TabIndex = 5
+        Me.txbRestP1Dur.Text = "180"
         '
         'Label12
         '
@@ -377,14 +377,14 @@ Partial Class Params
         Me.Label12.TabIndex = 6
         Me.Label12.Text = "P1 DUR:"
         '
-        'TextBox4
+        'txbRestIV
         '
-        Me.TextBox4.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox4.Location = New System.Drawing.Point(136, 48)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(119, 39)
-        Me.TextBox4.TabIndex = 3
-        Me.TextBox4.Text = "2"
+        Me.txbRestIV.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txbRestIV.Location = New System.Drawing.Point(136, 48)
+        Me.txbRestIV.Name = "txbRestIV"
+        Me.txbRestIV.Size = New System.Drawing.Size(119, 39)
+        Me.txbRestIV.TabIndex = 3
+        Me.txbRestIV.Text = "2"
         '
         'Label13
         '
@@ -396,126 +396,123 @@ Partial Class Params
         Me.Label13.TabIndex = 4
         Me.Label13.Text = "IV:"
         '
-        'GroupBox2
+        'grpRESU
         '
-        Me.GroupBox2.Controls.Add(Me.Label14)
-        Me.GroupBox2.Controls.Add(Me.TextBox5)
-        Me.GroupBox2.Controls.Add(Me.TextBox6)
-        Me.GroupBox2.Controls.Add(Me.Label15)
-        Me.GroupBox2.Controls.Add(Me.ComboBox1)
-        Me.GroupBox2.Controls.Add(Me.Label16)
-        Me.GroupBox2.Controls.Add(Me.Label17)
-        Me.GroupBox2.Controls.Add(Me.TextBox7)
-        Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox2.Location = New System.Drawing.Point(18, 320)
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(283, 249)
-        Me.GroupBox2.TabIndex = 15
-        Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "RESURGIMIENTO"
+        Me.grpRESU.Controls.Add(Me.txbResuP3Dur)
+        Me.grpRESU.Controls.Add(Me.txbResuIV)
+        Me.grpRESU.Controls.Add(Me.Label14)
+        Me.grpRESU.Controls.Add(Me.Label17)
+        Me.grpRESU.Controls.Add(Me.txbResuP2Dur)
+        Me.grpRESU.Controls.Add(Me.Label16)
+        Me.grpRESU.Controls.Add(Me.Label15)
+        Me.grpRESU.Controls.Add(Me.txbResuP1Dur)
+        Me.grpRESU.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.grpRESU.Location = New System.Drawing.Point(18, 320)
+        Me.grpRESU.Name = "grpRESU"
+        Me.grpRESU.Size = New System.Drawing.Size(283, 249)
+        Me.grpRESU.TabIndex = 15
+        Me.grpRESU.TabStop = False
+        Me.grpRESU.Text = "RESU"
+        '
+        'txbResuP3Dur
+        '
+        Me.txbResuP3Dur.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txbResuP3Dur.Location = New System.Drawing.Point(136, 190)
+        Me.txbResuP3Dur.Name = "txbResuP3Dur"
+        Me.txbResuP3Dur.Size = New System.Drawing.Size(119, 39)
+        Me.txbResuP3Dur.TabIndex = 17
+        Me.txbResuP3Dur.Text = "60"
         '
         'Label14
         '
         Me.Label14.AutoSize = True
         Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(6, 48)
+        Me.Label14.Location = New System.Drawing.Point(6, 193)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(56, 32)
-        Me.Label14.TabIndex = 7
-        Me.Label14.Text = "INI:"
+        Me.Label14.Size = New System.Drawing.Size(124, 32)
+        Me.Label14.TabIndex = 18
+        Me.Label14.Text = "P3 DUR:"
         '
-        'TextBox5
+        'txbResuP2Dur
         '
-        Me.TextBox5.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox5.Location = New System.Drawing.Point(125, 135)
-        Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.Size = New System.Drawing.Size(130, 39)
-        Me.TextBox5.TabIndex = 0
-        Me.TextBox5.Text = "10"
-        '
-        'TextBox6
-        '
-        Me.TextBox6.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox6.Location = New System.Drawing.Point(125, 180)
-        Me.TextBox6.Name = "TextBox6"
-        Me.TextBox6.Size = New System.Drawing.Size(130, 39)
-        Me.TextBox6.TabIndex = 1
-        Me.TextBox6.Text = "30"
+        Me.txbResuP2Dur.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txbResuP2Dur.Location = New System.Drawing.Point(136, 145)
+        Me.txbResuP2Dur.Name = "txbResuP2Dur"
+        Me.txbResuP2Dur.Size = New System.Drawing.Size(119, 39)
+        Me.txbResuP2Dur.TabIndex = 15
+        Me.txbResuP2Dur.Text = "240"
         '
         'Label15
         '
         Me.Label15.AutoSize = True
         Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label15.Location = New System.Drawing.Point(6, 138)
+        Me.Label15.Location = New System.Drawing.Point(6, 148)
         Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(102, 32)
-        Me.Label15.TabIndex = 2
-        Me.Label15.Text = "IV RIC:"
+        Me.Label15.Size = New System.Drawing.Size(124, 32)
+        Me.Label15.TabIndex = 16
+        Me.Label15.Text = "P2 DUR:"
         '
-        'ComboBox1
+        'txbResuP1Dur
         '
-        Me.ComboBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.875!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"RIC", "POB"})
-        Me.ComboBox1.Location = New System.Drawing.Point(125, 45)
-        Me.ComboBox1.Margin = New System.Windows.Forms.Padding(2)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(130, 40)
-        Me.ComboBox1.TabIndex = 8
-        Me.ComboBox1.Text = "RIC"
+        Me.txbResuP1Dur.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txbResuP1Dur.Location = New System.Drawing.Point(136, 100)
+        Me.txbResuP1Dur.Name = "txbResuP1Dur"
+        Me.txbResuP1Dur.Size = New System.Drawing.Size(119, 39)
+        Me.txbResuP1Dur.TabIndex = 13
+        Me.txbResuP1Dur.Text = "180"
         '
         'Label16
         '
         Me.Label16.AutoSize = True
         Me.Label16.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label16.Location = New System.Drawing.Point(6, 183)
+        Me.Label16.Location = New System.Drawing.Point(6, 103)
         Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(115, 32)
-        Me.Label16.TabIndex = 3
-        Me.Label16.Text = "IV POB:"
+        Me.Label16.Size = New System.Drawing.Size(124, 32)
+        Me.Label16.TabIndex = 14
+        Me.Label16.Text = "P1 DUR:"
+        '
+        'txbResuIV
+        '
+        Me.txbResuIV.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txbResuIV.Location = New System.Drawing.Point(136, 55)
+        Me.txbResuIV.Name = "txbResuIV"
+        Me.txbResuIV.Size = New System.Drawing.Size(119, 39)
+        Me.txbResuIV.TabIndex = 11
+        Me.txbResuIV.Text = "2"
         '
         'Label17
         '
         Me.Label17.AutoSize = True
         Me.Label17.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label17.Location = New System.Drawing.Point(6, 95)
+        Me.Label17.Location = New System.Drawing.Point(6, 58)
         Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(109, 32)
-        Me.Label17.TabIndex = 5
-        Me.Label17.Text = "C DUR:"
-        '
-        'TextBox7
-        '
-        Me.TextBox7.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox7.Location = New System.Drawing.Point(125, 90)
-        Me.TextBox7.Name = "TextBox7"
-        Me.TextBox7.Size = New System.Drawing.Size(130, 39)
-        Me.TextBox7.TabIndex = 6
-        Me.TextBox7.Text = "240"
+        Me.Label17.Size = New System.Drawing.Size(48, 32)
+        Me.Label17.TabIndex = 12
+        Me.Label17.Text = "IV:"
         '
         'Params
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1159, 618)
-        Me.Controls.Add(Me.GroupBox1)
-        Me.Controls.Add(Me.GroupBox2)
+        Me.ClientSize = New System.Drawing.Size(867, 601)
+        Me.Controls.Add(Me.grpREST)
+        Me.Controls.Add(Me.grpRESU)
         Me.Controls.Add(Me.chkCostoRes)
-        Me.Controls.Add(Me.grpREN)
-        Me.Controls.Add(Me.grpRES)
+        Me.Controls.Add(Me.grpRENO)
+        Me.Controls.Add(Me.grpRESI)
         Me.Controls.Add(Me.cboProc)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Button1)
         Me.Name = "Params"
         Me.Text = "Params"
-        Me.grpRES.ResumeLayout(False)
-        Me.grpRES.PerformLayout()
-        Me.grpREN.ResumeLayout(False)
-        Me.grpREN.PerformLayout()
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
-        Me.GroupBox2.ResumeLayout(False)
-        Me.GroupBox2.PerformLayout()
+        Me.grpRESI.ResumeLayout(False)
+        Me.grpRESI.PerformLayout()
+        Me.grpRENO.ResumeLayout(False)
+        Me.grpRENO.PerformLayout()
+        Me.grpREST.ResumeLayout(False)
+        Me.grpREST.PerformLayout()
+        Me.grpRESU.ResumeLayout(False)
+        Me.grpRESU.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -532,33 +529,33 @@ Partial Class Params
     Friend WithEvents cboResInicio As ComboBox
     Friend WithEvents Label5 As Label
     Friend WithEvents cboProc As ComboBox
-    Friend WithEvents grpRES As GroupBox
-    Friend WithEvents grpREN As GroupBox
-    Friend WithEvents txbRenIV As TextBox
+    Friend WithEvents grpRESI As GroupBox
+    Friend WithEvents grpRENO As GroupBox
+    Friend WithEvents txbRenoIV As TextBox
     Friend WithEvents Label6 As Label
     Friend WithEvents chkCostoRes As CheckBox
-    Friend WithEvents txbP3Dur As TextBox
+    Friend WithEvents txbRenoP3Dur As TextBox
     Friend WithEvents Label9 As Label
-    Friend WithEvents txbP2Dur As TextBox
+    Friend WithEvents txbRenoP2Dur As TextBox
     Friend WithEvents Label8 As Label
-    Friend WithEvents txbP1Dur As TextBox
+    Friend WithEvents txbRenoP1Dur As TextBox
     Friend WithEvents Label7 As Label
-    Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents grpREST As GroupBox
+    Friend WithEvents txbRestP3Dur As TextBox
     Friend WithEvents Label10 As Label
-    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents txbRestP2Dur As TextBox
     Friend WithEvents Label11 As Label
-    Friend WithEvents TextBox3 As TextBox
+    Friend WithEvents txbRestP1Dur As TextBox
     Friend WithEvents Label12 As Label
-    Friend WithEvents TextBox4 As TextBox
+    Friend WithEvents txbRestIV As TextBox
     Friend WithEvents Label13 As Label
-    Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents grpRESU As GroupBox
+    Friend WithEvents txbResuP3Dur As TextBox
+    Friend WithEvents txbResuIV As TextBox
     Friend WithEvents Label14 As Label
-    Friend WithEvents TextBox5 As TextBox
-    Friend WithEvents TextBox6 As TextBox
-    Friend WithEvents Label15 As Label
-    Friend WithEvents ComboBox1 As ComboBox
-    Friend WithEvents Label16 As Label
     Friend WithEvents Label17 As Label
-    Friend WithEvents TextBox7 As TextBox
+    Friend WithEvents txbResuP2Dur As TextBox
+    Friend WithEvents Label16 As Label
+    Friend WithEvents Label15 As Label
+    Friend WithEvents txbResuP1Dur As TextBox
 End Class
